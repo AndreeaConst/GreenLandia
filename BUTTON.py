@@ -9,14 +9,10 @@ class button():
         self.height = height
         self.text = text
 
-    def draw(self, screen, size, outline = None, shape = None):
-        if shape == None:
-            if outline:
-                pygame.draw.rect(screen, outline, (self.x-2, self.y-2, self.width+4, self.height+4), 0)
-            pygame.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height), 0)
-        else:
-            points = [(350, 350), (400, 320), (460, 340), (410, 450)]
-            pygame.draw.polygon(screen, (0, 0, 255), points, 4)
+    def draw(self, screen, size, outline = None):
+        if outline:
+                pygame.draw.rect(screen, outline, (self.x-2, self.y-2, self.width+4, self.height+4))
+        pygame.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height), 0)
 
         if self.text != '':
             font = pygame.font.SysFont('arial', size)

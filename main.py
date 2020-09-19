@@ -1,5 +1,7 @@
-import pygame, BUTTON, random, time
+import pygame, BUTTON, random, os
 from pygame import mixer
+
+os.environ['SDL_VIDEO_CENTERED'] = '1' #for centering the window game
 
 # Initialize the pygame
 pygame.init()
@@ -18,11 +20,46 @@ arrow_down = pygame.image.load('arrow_down.png')
 arrow_up = pygame.image.load('arrow_up.png')
 arrow_left = pygame.image.load('arrow_left.png')
 
+descriptionBioFuel1 = pygame.image.load('recycled items/organic/description bio fuel 1.png')
+descriptionBioFuel2 = pygame.image.load('recycled items/organic/description bio fuel 2.png')
+descriptionFertilizer1 = pygame.image.load('recycled items/organic/description fertilizer 1.png')
+descriptionFertilizer2 = pygame.image.load('recycled items/organic/description fertilizer 2.png')
+descriptionUtensils = pygame.image.load('recycled items/plastic/description utensils.jpg')
+descriptionSchoolbag = pygame.image.load('recycled items/plastic/description schoolbag.png')
+descriptionPlasticBottle = pygame.image.load('recycled items/plastic/description plastic bottle.png')
+descriptionPaperStock = pygame.image.load('recycled items/paper/description paper stock.jpg')
+descriptionNotebooks = pygame.image.load('recycled items/paper/description notebooks.png')
+descriptionNapkins = pygame.image.load('recycled items/paper/description napkins.jpg')
+descriptionCap = pygame.image.load('recycled items/plastic/description cap.png')
+descriptionShoe = pygame.image.load('recycled items/plastic/description shoe.png')
+descriptionPencils = pygame.image.load('recycled items/paper/description pencils.jpg')
+descriptionBook = pygame.image.load('recycled items/paper/description book.png')
+descriptionCups = pygame.image.load('recycled items/paper/description cups.png')
+descriptionGlassBottle = pygame.image.load('recycled items/glass/description glass bottle.png')
+descriptionFiberGlass = pygame.image.load('recycled items/glass/description fiber glass.png')
+descriptionGlassBricks = pygame.image.load('recycled items/glass/description glass bricks.jpg')
+descriptionMetalBench = pygame.image.load('recycled items/metal/description metal bench.jpg')
+descriptionMetalChair = pygame.image.load('recycled items/metal/description metal chair.png')
+descriptionMetalCoffeeMaker = pygame.image.load('recycled items/metal/description metal coffeemaker.png')
+descriptionCar = pygame.image.load('recycled items/metal/description car.png')
+descriptionPlane = pygame.image.load('recycled items/metal/description plane.png')
+descriptionMetalLamp = pygame.image.load('recycled items/metal/description metal lamp.png')
+descriptionGlassphalt1 = pygame.image.load('recycled items/glass/description glassphalt 1.jpg')
+descriptionGlassphalt2 = pygame.image.load('recycled items/glass/description glassphalt 2.jpg')
+descriptionReflectivePaint = pygame.image.load('recycled items/glass/description reflective paint.png')
+descriptionGlassTiles1 = pygame.image.load('recycled items/glass/description glass tiles 1.jpg')
+descriptionGlassTiles2 = pygame.image.load('recycled items/glass/description glass tiles 2.jpg')
+descriptionGlassTiles3 = pygame.image.load('recycled items/glass/description glass tiles 3.jpg')
+descriptionFridge = pygame.image.load('recycled items/metal/description fridge.png')
+descriptionMetalUtensils = pygame.image.load('recycled items/metal/description metal utensils.png')
+descriptionMicrowave = pygame.image.load('recycled items/metal/description microwave.png')
+descriptionOven = pygame.image.load('recycled items/metal/description oven.png')
+descriptionToaster = pygame.image.load('recycled items/metal/description toaster.png')
+
 bio_fuel = pygame.image.load('recycled items/organic/biofuel.png')
 compost = pygame.image.load('recycled items/organic/fertilizer.png')
 
 plastic_utensils = pygame.image.load('recycled items/plastic/plastic_utensils.png')
-bio_bag = pygame.image.load('recycled items/plastic/bio_bag.png')
 bottle = pygame.image.load('recycled items/plastic/bottle.jpg')
 cap = pygame.image.load('recycled items/plastic/cap.png')
 shoe = pygame.image.load('recycled items/plastic/shoe.png')
@@ -321,13 +358,1890 @@ def visit_recycling_area(screen):
     town_music.play(-1)
     screen = pygame.display.set_mode((1300, 700))
 
+def info_bioFuel(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((255, 180, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255),850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 300 ORGANIC WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Biofuels are designed to replace gasoline, diesel\n" \
+           "fuel and coal, which are called “fossil fuels” \n" \
+           "because they are made from animals and plants that\n" \
+           "died millions of years ago.\n\n\n" \
+           "  Biofuels are made mostly from plants that have\n" \
+           "just been harvested.\n\n\n" \
+           "  Biofuels are looked at as a means of replacing ALL\n" \
+           "of human energy needs from home heating to vehicle\n" \
+           "fuel to electricity generation."
+    global scoreOrganic
+    textWorker = "You have now " +str(scoreOrganic)+ " ORGANIC WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionBioFuel1, (530, 50))
+        screen.blit(descriptionBioFuel2, (530, 280))
+
+        blit_text(screen, "BIOFUEL", (280, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreOrganic >= 300:
+                        scoreOrganic -= 300
+                        textWorker = "You have now " +str(scoreOrganic)+ " ORGANIC WASTE!\n\n"\
+                                     "You just created biofuel! Congrats!\n" \
+                                     "    I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough organic waste\n" \
+                                     "        to create biofuel!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (255, 180, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_compost(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((255, 180, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 ORGANIC WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  The soil in which a plant grows plays the most important role because\n" \
+                "the various minerals and organic nutrients in the soil make sure\n" \
+                "that it is healthy.\n\n\n"\
+                " Compost is added in order to improve the quality, structure and\n" \
+                "texture of the soil, increasing the amount of nutrients for plants.\n\n\n"\
+                "  Compost can be made of paper materials as long as there is no\n" \
+                "plastic coating, dried out egg-shells, leaves and garden trimmings,\n" \
+                "fruits and vegetables, coffee and tea leaves.\n" \
+                "  Practically, it uses organic matter that you produce in your\n" \
+                "kitchen or around the house."
+
+    global scoreOrganic
+    textWorker = "You have now " + str(scoreOrganic) + " ORGANIC WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionFertilizer2, (420, 58))
+        screen.blit(descriptionFertilizer1, (580, 280))
+
+        blit_text(screen, "COMPOST", (280, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (230, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreOrganic >= 50:
+                        scoreOrganic -= 50
+                        textWorker = "You have now " + str(scoreOrganic) + " ORGANIC WASTE!\n\n" \
+                                                                           "You just created compost! Congrats!\n" \
+                                                                           "    I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough organic waste\n" \
+                                     "        to create compost!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (255, 180, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_bioUtensils(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PLASTIC WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 35)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Utensils manufactured with recycled plastic can be recycled again using existing recycling\n" \
+                "resources.\n\n" \
+                "  Recycled plastics are plastic made from recycled plastic materials. In other words, products\n" \
+                "that are recycled into something new.\n\n" \
+                "  While this is a great alternative to keeping a product out of the landfill, there are still\n" \
+                "resources that go into the process of collecting and recycling an item.\n\n" \
+                "  So still, it is better to avoid plastic utensils as much as you can!"
+
+    global scorePlastic
+    textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(plastic_utensils, (650, 65))
+        screen.blit(descriptionUtensils, (580, 355))
+
+        blit_text(screen, "REUSABLE UTENSILS", (210, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (230, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePlastic >= 50:
+                        scorePlastic -= 50
+                        textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!\n\n" \
+                                                                           "You just created recycled utensils! Congrats!\n" \
+                                                                           "         I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough plastic waste\n" \
+                                     "     to create recycled utensils!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (200, 10, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_plasticBackpack(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 70 PLASTIC WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Recycled plastics are plastic made from recycled plastic\n" \
+                "materials. In other words, products that are recycled into\n" \
+                "something new.\n\n" \
+                "  Upon collection, the plastic is then cleaned, processed into\n" \
+                "flakes and heated into pellets, before being stretched into a\n" \
+                "yarn-like fiber and woven into a functional fabric. Items from\n" \
+                "this collection are shipped in a zero-waste packaging solution:\n" \
+                "water-resistant reversible tote bags." \
+
+    global scorePlastic
+    textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionSchoolbag, (550, 250))
+
+        blit_text(screen, "RECYCLED PLASTIC SCHOOLBAG", (200, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (230, 270), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePlastic >= 70:
+                        scorePlastic -= 70
+                        textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!\n\n" \
+                                                                           "You just created a recycled plastic schoolbag! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough plastic waste\n" \
+                                     "       to create a schoolbag!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (200, 10, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_plasticBottle(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 10 PLASTIC WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  After you put your plastic bottle into\n" \
+                "the right bin, it is also sorted by the\n" \
+                "type of plastic it is made from. Then, the\n" \
+                "bottle is cleaned from any food, liquid,\n" \
+                "or chemical residue.\n\n" \
+                "  Next, all of the bottles are ground up\n" \
+                "and shredded into flakes. Finally, they are\n" \
+                "melted down and formed into small pellets,\n" \
+                "each about the size of a grain of rice.\n" \
+                "The pellets are bundled up and sold to\n" \
+                "companies that can be melt them and make\n" \
+                "them into many different products.\n" \
+                "Just like a plastic bottle!" \
+
+    global scorePlastic
+    textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionPlasticBottle, (520, 230))
+
+        blit_text(screen, "RECYCLED PLASTIC BOTTLE", (240, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (250, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePlastic >= 10:
+                        scorePlastic -= 10
+                        textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!\n\n" \
+                                                                           "You just created a recycled plastic bottle! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough plastic waste\n" \
+                                     "     to create a plastic bottle!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (200, 10, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_paperStock(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PAPER WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  The recycling of paper is the process by\n" \
+                "which waste paper is turned into new paper\n" \
+                "products. It has a number of important benefits:\n" \
+                "it saves waste paper from occupying homes of\n" \
+                "people and producing methane as it breaks down.\n\n" \
+                "  Because paper fibre contains carbon, recycling\n" \
+                "keeps the carbon locked up for longer and out of\n" \
+                "the atmosphere.\n\n" \
+                "  After repeated processing the fibres become too\n" \
+                "short for the production of new paper - this is why\n" \
+                "virgin fibre (from sustainably farmed trees) will be\n" \
+                "added to the pulp recipe.\n" \
+                "  After a long process, here we have new paper that\n" \
+                "we can use!" \
+
+    global scorePaper
+    textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionPaperStock, (540, 230))
+
+        blit_text(screen, "RECYCLED PAPER STOCK", (260, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (250, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePaper >= 50:
+                        scorePaper -= 50
+                        textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!\n\n" \
+                                                                           "You just created a recycled paper stock! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough paper waste\n" \
+                                     "     to create a paper stock!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (255, 255, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_notebook(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PAPER WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  The recycling of paper is the process by\n" \
+                "which waste paper is turned into new paper\n" \
+                "products. It has a number of important benefits:\n" \
+                "it saves waste paper from occupying homes of\n" \
+                "people and producing methane as it breaks down.\n\n" \
+                "  Because paper fibre contains carbon, recycling\n" \
+                "keeps the carbon locked up for longer and out of\n" \
+                "the atmosphere.\n\n" \
+                "  After repeated processing the fibres become too\n" \
+                "short for the production of new paper - this is why\n" \
+                "virgin fibre (from sustainably farmed trees) will be\n" \
+                "added to the pulp recipe.\n" \
+                "  After a long process, here we have new notebooks that\n" \
+                "we can use!" \
+
+    global scorePaper
+    textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionNotebooks, (550, 230))
+
+        blit_text(screen, "RECYCLED PAPER NOTEBOOKS", (220, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (250, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePaper >= 30:
+                        scorePaper -= 30
+                        textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!\n\n" \
+                                                                           "You just created rcycled notebooks! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough paper waste\n" \
+                                     "     to create notebooks!\n" \
+                                     "Recycle more in order to create them!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (255, 255, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_napkins(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 10 PAPER WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  The recycling of paper is the process by\n" \
+                "which waste paper is turned into new paper\n" \
+                "products. It has a number of important benefits:\n" \
+                "it saves waste paper from occupying homes of\n" \
+                "people and producing methane as it breaks down.\n\n" \
+                "  Because paper fibre contains carbon, recycling\n" \
+                "keeps the carbon locked up for longer and out of\n" \
+                "the atmosphere.\n\n" \
+                "  After repeated processing the fibres become too\n" \
+                "short for the production of new paper - this is why\n" \
+                "virgin fibre (from sustainably farmed trees) will be\n" \
+                "added to the pulp recipe.\n" \
+                "  After a long process, here we have new napkins that\n" \
+                "we can use!" \
+
+    global scorePaper
+    textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionNapkins, (540, 230))
+
+        blit_text(screen, "RECYCLED PAPER NAPKINS", (260, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (250, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePaper >= 10:
+                        scorePaper -= 10
+                        textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!\n\n" \
+                                                                           "You just created recycled paper napkins! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough paper waste\n" \
+                                     "     to create paper napkins!\n" \
+                                     "Recycle more in order to create them!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (255, 255, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_cap(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PLASTIC WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "    Recycled plastics are plastic made from\n" \
+                "recycled plastic materials. In other words,\n" \
+                "products that are recycled into something new.\n\n" \
+                "  Upon collection, the plastic is then cleaned,\n" \
+                "processed into flakes and heated into pellets,\n" \
+                "before being stretched into a yarn-like fiber\n" \
+                "and woven into a functional fabric. Like a cap!" \
+
+    global scorePlastic
+    textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionCap, (520, 230))
+
+        blit_text(screen, "RECYCLED PLASTIC CAP", (240, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (250, 240), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePlastic >= 30:
+                        scorePlastic -= 30
+                        textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!\n\n" \
+                                                                           "You just created a recycled plastic cap! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough plastic waste\n" \
+                                     "        to create a cap!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (200, 10, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_shoe(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PLASTIC WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "    Recycled plastics are plastic made from\n" \
+                "recycled plastic materials. In other words,\n" \
+                "products that are recycled into something new.\n\n" \
+                "  Upon collection, the plastic is then cleaned,\n" \
+                "processed into flakes and heated into pellets,\n" \
+                "before being stretched into a yarn-like fiber\n" \
+                "and woven into a functional fabric. Like shoes!" \
+
+    global scorePlastic
+    textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionShoe, (520, 230))
+
+        blit_text(screen, "RECYCLED PLASTIC SHOE", (240, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (250, 260), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePlastic >= 50:
+                        scorePlastic -= 50
+                        textWorker = "You have now " + str(scorePlastic) + " PLASTIC WASTE!\n\n" \
+                                                                           "You just created recycled plastic shoes! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough plastic waste\n" \
+                                     "        to create shoes!\n" \
+                                     "Recycle more in order to create them!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (200, 10, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_pencils(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PAPER WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 32)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  The recycling of paper is the process by\n" \
+                "which waste paper is turned into new paper\n" \
+                "products. It has a number of important benefits:\n" \
+                "it saves waste paper from occupying homes of\n" \
+                "people and producing methane as it breaks down.\n\n" \
+                "  Because paper fibre contains carbon, recycling\n" \
+                "keeps the carbon locked up for longer and out of\n" \
+                "the atmosphere.\n\n" \
+                "  After repeated processing the fibres become too\n" \
+                "short for the production of new paper - this is why\n" \
+                "virgin fibre (from sustainably farmed trees) will be\n" \
+                "added to the pulp recipe.\n" \
+                "  After a long process, here we have new paper pencils\n" \
+                "that we can use!" \
+
+    global scorePaper
+    textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionPencils, (540, 230))
+
+        blit_text(screen, "RECYCLED PAPER PENCILS", (260, 142), font2, (0, 0, 0))
+        blit_text(screen, textTable, (250, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scorePaper >= 30:
+                        scorePaper -= 30
+                        textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!\n\n" \
+                                                                           "You just created recycled paper pencils! Congrats!\n" \
+                                                                           "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough paper waste\n" \
+                                     "     to create paper pencils!\n" \
+                                     "Recycle more in order to create them!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (255, 255, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_book(screen, worker):
+        table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+        table2 = BUTTON.button((255, 255, 0), 200, 50, 590, 133, ' ')
+        text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+        createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 80 PAPER WASTE')
+
+        font1 = pygame.font.SysFont('arial', 15)
+        font2 = pygame.font.SysFont('arialblack', 32)
+        font3 = pygame.font.SysFont('arial', 20)
+        textTable = "  The recycling of paper is the process by\n" \
+                    "which waste paper is turned into new paper\n" \
+                    "products. It has a number of important benefits:\n" \
+                    "it saves waste paper from occupying homes of\n" \
+                    "people and producing methane as it breaks down.\n\n" \
+                    "  Because paper fibre contains carbon, recycling\n" \
+                    "keeps the carbon locked up for longer and out of\n" \
+                    "the atmosphere.\n\n" \
+                    "  After repeated processing the fibres become too\n" \
+                    "short for the production of new paper - this is why\n" \
+                    "virgin fibre (from sustainably farmed trees) will be\n" \
+                    "added to the pulp recipe.\n" \
+                    "  After a long process, here we have a new book that\n" \
+                    "we can use!" \
+
+        global scorePaper
+        textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!"
+        run = True
+        while run:
+            screen.blit(recycling_factory, (0, 0))
+
+            drawButton(screen, table1, 13, (0, 0, 0))
+            drawButton(screen, table2, 13, (0, 0, 0))
+            drawButton(screen, createButton, 13, (0, 0, 0))
+            drawButton(screen, text_button, 13, (0, 0, 0))
+
+            screen.blit(worker, (700, 0))
+            screen.blit(descriptionBook, (540, 230))
+
+            blit_text(screen, "BOOK", (300, 142), font2, (0, 0, 0))
+            blit_text(screen, textTable, (250, 220), font1, (0, 0, 0))
+            blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+            for event in pygame.event.get():
+                pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+                if event.type == pygame.QUIT:
+                    run = False
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if createButton.isOver(pos):
+                        if scorePaper >= 80:
+                            scorePaper -= 80
+                            textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!\n\n" \
+                                                                             "You just created a book! Congrats!\n" \
+                                                                             "     I am indeed proud of you!"
+                        else:
+                            textWorker = "You don't have enough paper waste\n" \
+                                         "       to create a book!\n" \
+                                         "Recycle more in order to create it!"
+                if event.type == pygame.MOUSEMOTION:
+                    if createButton.isOver(pos):
+                        createButton.color = (255, 255, 0)
+                    else:
+                        createButton.color = (255, 255, 255)
+
+            pygame.display.update()
+
+def info_cups(screen, worker):
+        table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+        table2 = BUTTON.button((255, 255, 0), 200, 50, 590, 133, ' ')
+        text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+        createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 PAPER WASTE')
+
+        font1 = pygame.font.SysFont('arial', 15)
+        font2 = pygame.font.SysFont('arialblack', 32)
+        font3 = pygame.font.SysFont('arial', 20)
+        textTable = "  The recycling of paper is the process by\n" \
+                    "which waste paper is turned into new paper\n" \
+                    "products. It has a number of important benefits:\n" \
+                    "it saves waste paper from occupying homes of\n" \
+                    "people and producing methane as it breaks down.\n\n" \
+                    "  Because paper fibre contains carbon, recycling\n" \
+                    "keeps the carbon locked up for longer and out of\n" \
+                    "the atmosphere.\n\n" \
+                    "  After repeated processing the fibres become too\n" \
+                    "short for the production of new paper - this is why\n" \
+                    "virgin fibre (from sustainably farmed trees) will be\n" \
+                    "added to the pulp recipe.\n" \
+                    "  After a long process, here we have new paper cusp that\n" \
+                    "we can use instead of plastic ones!" \
+
+        global scorePaper
+        textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!"
+        run = True
+        while run:
+            screen.blit(recycling_factory, (0, 0))
+
+            drawButton(screen, table1, 13, (0, 0, 0))
+            drawButton(screen, table2, 13, (0, 0, 0))
+            drawButton(screen, createButton, 13, (0, 0, 0))
+            drawButton(screen, text_button, 13, (0, 0, 0))
+
+            screen.blit(worker, (700, 0))
+            screen.blit(descriptionCups, (540, 230))
+
+            blit_text(screen, "RECYCLED PAPER CUPS", (260, 142), font2, (0, 0, 0))
+            blit_text(screen, textTable, (250, 220), font1, (0, 0, 0))
+            blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+            for event in pygame.event.get():
+                pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+                if event.type == pygame.QUIT:
+                    run = False
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if createButton.isOver(pos):
+                        if scorePaper >= 20:
+                            scorePaper -= 20
+                            textWorker = "You have now " + str(scorePaper) + " PAPER WASTE!\n\n" \
+                                                                             "You just created recycled paper cups! Congrats!\n" \
+                                                                             "          I am indeed proud of you!"
+                        else:
+                            textWorker = "You don't have enough paper waste\n" \
+                                         "     to create paper cups!\n" \
+                                         "Recycle more in order to create them!"
+                if event.type == pygame.MOUSEMOTION:
+                    if createButton.isOver(pos):
+                        createButton.color = (255, 255, 0)
+                    else:
+                        createButton.color = (255, 255, 255)
+
+            pygame.display.update()
+
+def info_glassBottle(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Glass bottles and jars are infinitely recyclable.\n" \
+                "Glass recycling is the processing of waste\n" \
+                "glass into usable products, like these glass\n" \
+                "bottles here.\n\n\n" \
+                "  To be recycled, glass waste needs to be\n" \
+                "purified and cleaned of contamination. Then,\n" \
+                "it might also have to be separated into different\n" \
+                "colors. Many recyclers collect different colors of\n" \
+                "glass separately since glass retains its color after\n" \
+                "recycling." \
+
+    global scoreGlass
+    textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionGlassBottle, (530, 220))
+
+        blit_text(screen, "RECYCLED GLASS BOTTLE", (200, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreGlass >= 20:
+                        scoreGlass -= 20
+                        textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!\n\n" \
+                                                                           "You just created a glass bottle! Congrats!\n" \
+                                                                           "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough glass waste\n" \
+                                     "     to create a glass bottle!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (0, 150, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_fiberGlass(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Fiberglass is material made from extremely\n" \
+                "fine fibers of glass.\n\n\n" \
+                "  Fiberglass is used in the telecommunications\n" \
+                "industry for shrouding antennas. Other uses include\n" \
+                "sheet-form electrical insulators and structural\n" \
+                "components commonly found in power-industry products.\n\n" \
+                "  Because of fiberglass's light weight and durability,\n" \
+                "it is often used in protective equipment such as helmets.\n" \
+                "Many sports use fiberglass protective gear, such as\n" \
+                "goaltenders' and catchers' masks." \
+
+    global scoreGlass
+    textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionFiberGlass, (560, 220))
+
+        blit_text(screen, "FIBER GLASS", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreGlass >= 20:
+                        scoreGlass -= 20
+                        textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!\n\n" \
+                                                                         "You just created fiber glass! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough glass waste\n" \
+                                     "     to create fiber glass!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (0, 150, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_glassBricks(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Glass brick, also known as glass block,\n" \
+                "is an architectural element made from glass.\n\n" \
+                "  The appearance of glass blocks can vary in\n" \
+                "color, size, texture and form.\n\n" \
+                "  Glass bricks provide visual obscuration while\n" \
+                "admitting light.\n\n" \
+                "  Today glass blocks are used in walls, skylights,\n" \
+                "and sidewalk lights." \
+
+    global scoreGlass
+    textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionGlassBricks, (560, 220))
+
+        blit_text(screen, "GLASS BRICKS", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreGlass >= 20:
+                        scoreGlass -= 20
+                        textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!\n\n" \
+                                                                         "You just created glass bricks! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough glass waste\n" \
+                                     "     to create glass bricks!\n" \
+                                     "Recycle more in order to create them!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (0, 150, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_metalBench(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 60 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this metal bench here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionMetalBench, (560, 240))
+
+        blit_text(screen, "METAL BENCH", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 60:
+                        scoreMetal -= 60
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a metal bench! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "     to create a metal bench!\n" \
+                                     "Recycle more in order to create it"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_metalChair(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 40 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this metal chair here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionMetalChair, (560, 240))
+
+        blit_text(screen, "METAL CHAIR", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 40:
+                        scoreMetal -= 40
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a metal chair! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "     to create a metal chair!\n" \
+                                     "Recycle more in order to create it"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_metalCoffeemaker(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this metal coffeemaker here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionMetalCoffeeMaker, (560, 200))
+
+        blit_text(screen, "METAL COFFEEMAKER", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 50:
+                        scoreMetal -= 50
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a metal coffeemaker! Congrats!\n" \
+                                                                         "          I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "  to create a metal coffeemaker!\n" \
+                                     "Recycle more in order to create it"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_car(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 200 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this car here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionCar, (560, 260))
+
+        blit_text(screen, "CAR", (280, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 200:
+                        scoreMetal -= 200
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a car! Congrats!\n" \
+                                                                         "    I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "        to create a car!\n" \
+                                     "Recycle more in order to create it"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_plane(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 300 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this plane here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionPlane, (560, 240))
+
+        blit_text(screen, "PLANE", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 300:
+                        scoreMetal -= 300
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a plane! Congrats!\n" \
+                                                                         "     I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "       to create a plane!\n" \
+                                     "Recycle more in order to create it"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_metalLamp(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this metal lamp here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionMetalLamp, (630, 220))
+
+        blit_text(screen, "METAL LAMP", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 20:
+                        scoreMetal -= 20
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a metal lamp! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "     to create a metal lamp!\n" \
+                                     "Recycle more in order to create it"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_glassphalt(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 GLASS WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  You may not realize it, but you drive over glass\n" \
+                "every day.\n" \
+                "  Glass is ground and added to other aggregate\n" \
+                "materials and to surface parking lots and concrete\n" \
+                "pavement.\n\n" \
+                "  As a base material, recycled glass enhances the\n" \
+                "performance of gravel in an aggregate mix.\n\n" \
+                "  Recycled glass is used to make glassphalt,\n" \
+                "a material that is applied to roads, highways\n" \
+                "and even airport runways to make these surfaces\n" \
+                "less slippery and less prone to cracking." \
+
+    global scoreGlass
+    textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionGlassphalt1, (560, 420))
+        screen.blit(descriptionGlassphalt2, (560, 200))
+
+
+        blit_text(screen, "GLASSPHALT", (250, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreGlass >= 50:
+                        scoreGlass -= 50
+                        textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!\n\n" \
+                                                                         "You just created glassphalt! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough glass waste\n" \
+                                     "     to create glassphalt!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (0, 150, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_reflectivePaint(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Reflective paint is regular paint with a reflective quality.\n" \
+                "Reflectivity in paint is made possible by adding tiny spheres\n" \
+                "or flakes of material like glass that gives the paint a reflective\n" \
+                "quality.\n\n\n" \
+                "  Reflectivity happens when light hits and bounces off the\n" \
+                "added material.\n\n\n" \
+                "  Road signs, road stripes, speed bumps, and reflective\n" \
+                "tape are all examples of the use of reflectivity. When a\n" \
+                "light source like your car headlights hit a surface that's\n" \
+                "painted using a reflective additive, like glass beads, the\n" \
+                "additive acts as a prism and reflects the light back in the\n" \
+                "direction of its source."
+
+
+    global scoreGlass
+    textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionReflectivePaint, (560, 250))
+
+        blit_text(screen, "REFLECTIVE PAINT", (250, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreGlass >= 20:
+                        scoreGlass -= 20
+                        textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!\n\n" \
+                                                                         "You just created reflective paint! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough glass waste\n" \
+                                     "    to create reflective paint!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (0, 150, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_glassTiles(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 GLASS WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  The variety of garden and landscape products made from recycled glass has led to\n" \
+                "the term 'greenscaping'. Unlike wood, glass mulch doesn't absorb moisture, which improves\n" \
+                "water delivery while reducing the frequency of watering.\n\n" \
+                "  It also comes in a wide variety of colors. Manufacturers combine recycled glass with\n" \
+                "crushed porcelain embedded in concrete slab to create decorative pathways and patios."
+
+    global scoreGlass
+    textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionGlassTiles1, (210, 350))
+        screen.blit(descriptionGlassTiles3, (405, 400))
+        screen.blit(descriptionGlassTiles2, (600, 350))
+
+        blit_text(screen, "GLASS TILES", (250, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreGlass >= 50:
+                        scoreGlass -= 50
+                        textWorker = "You have now " + str(scoreGlass) + " GLASS WASTE!\n\n" \
+                                                                         "You just created glass tiles! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough glass waste\n" \
+                                     "      to create glass tiles!\n" \
+                                     "Recycle more in order to create them!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (0, 150, 0)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_fridge(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 90 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this fridge here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionFridge, (560, 240))
+
+        blit_text(screen, "FRIDGE", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 90:
+                        scoreMetal -= 90
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a fridge! Congrats!\n" \
+                                                                         "     I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "       to create a fridge!\n" \
+                                     "Recycle more in order to create it"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_metalUtensils(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made these metal utensils here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionMetalUtensils, (560, 240))
+
+        blit_text(screen, "METAL UTENSILS", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 20:
+                        scoreMetal -= 20
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created metal utensils! Congrats!\n" \
+                                                                         "        I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "     to create metal utensils!\n" \
+                                     "Recycle more in order to create them!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_microwave(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 70 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this microwave here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionMicrowave, (560, 240))
+
+        blit_text(screen, "MICROWAVE", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 70:
+                        scoreMetal -= 70
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a microwave! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "     to create a microwave!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_oven(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 90 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this oven here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionOven, (560, 240))
+
+        blit_text(screen, "OVEN", (240, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 90:
+                        scoreMetal -= 90
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created an oven! Congrats!\n" \
+                                                                         "     I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "     to create an oven!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
+
+def info_toaster(screen, worker):
+    table1 = BUTTON.button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = BUTTON.button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = BUTTON.button((255, 255, 255), 850, 50, 350, 200, ' ')
+    createButton = BUTTON.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 40 METAL WASTE')
+
+    font1 = pygame.font.SysFont('arial', 15)
+    font2 = pygame.font.SysFont('arialblack', 40)
+    font3 = pygame.font.SysFont('arial', 20)
+    textTable = "  Metal is one of the major materials that\n" \
+                "can be recycled repeatedly without altering\n" \
+                "its properties.\n\n" \
+                "  Recycling emits less carbon dioxide and other\n" \
+                "harmful gasses. More importantly, it saves money and\n" \
+                "allows manufacturing businesses to reduce their\n" \
+                "production cost. Recycling also creates jobs.\n\n" \
+                "  Many of the recycled metals are reused to make\n" \
+                "new appliances, or reused in construction.\n" \
+                "  This is how we made this toaster here!" \
+
+    global scoreMetal
+    textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!"
+    run = True
+    while run:
+        screen.blit(recycling_factory, (0, 0))
+
+        drawButton(screen, table1, 13, (0, 0, 0))
+        drawButton(screen, table2, 13, (0, 0, 0))
+        drawButton(screen, createButton, 13, (0, 0, 0))
+        drawButton(screen, text_button, 13, (0, 0, 0))
+
+        screen.blit(worker, (700, 0))
+        screen.blit(descriptionToaster, (560, 240))
+
+        blit_text(screen, "TOASTER", (230, 138), font2, (0, 0, 0))
+        blit_text(screen, textTable, (240, 220), font1, (0, 0, 0))
+        blit_text(screen, textWorker, (880, 100), font3, (0, 0, 0))
+
+        for event in pygame.event.get():
+            pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
+
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if createButton.isOver(pos):
+                    if scoreMetal >= 40:
+                        scoreMetal -= 40
+                        textWorker = "You have now " + str(scoreMetal) + " METAL WASTE!\n\n" \
+                                                                         "You just created a toaster! Congrats!\n" \
+                                                                         "      I am indeed proud of you!"
+                    else:
+                        textWorker = "You don't have enough metal waste\n" \
+                                     "       to create a toaster!\n" \
+                                     "Recycle more in order to create it!"
+            if event.type == pygame.MOUSEMOTION:
+                if createButton.isOver(pos):
+                    createButton.color = (50, 0, 200)
+                else:
+                    createButton.color = (255, 255, 255)
+
+        pygame.display.update()
 
 def tableOfContents_recyclingFactory(screen):
     text = "   Hello! I am Paul, the chef worker here.\n   In the box to the left, you have the " \
            " amount of\nrecycled materials of each kind so far and how much\nmaterial we need to recreate something else." \
            "\n   We will create new products and put them\non the market." \
            " You choose which products\nwe can recreate by clicking on them." \
-           "\n\n  CONSUME, RECYCLE, REUSE."
+           "\n\n Go to the market after this process!"
     font = pygame.font.SysFont('arial', 20)
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 30)
@@ -392,7 +2306,7 @@ def moreProductsRight_recyclingFactory(screen, worker):
         const = 2
         for i in range(0, 3):
             y = 80
-            if i == 1:
+            if i == 2:
                 const += 1
             for j in range(0, const):
                 white_square = BUTTON.button((255, 255, 255), y, z, 175, 130, ' ')
@@ -412,9 +2326,6 @@ def moreProductsRight_recyclingFactory(screen, worker):
         screen.blit(shoe, (280, 370))
         blit_text(screen, "         SHOE\n50 PLASTIC WASTE", (275, 475), font3, (0, 0, 0))
 
-        screen.blit(schoolbag, (465, 375))
-        blit_text(screen, "      SCHOOLBAG\n 70 PLASTIC WASTE", (447, 475), font3, (0, 0, 0))
-
         screen.blit(pencils, (120, 495))
         blit_text(screen, "RECYCLED PAPER PENCIL\n     30 PAPER WASTE", (80, 607), font3, (0, 0, 0))
 
@@ -432,6 +2343,28 @@ def moreProductsRight_recyclingFactory(screen, worker):
             if event.type == pygame.QUIT:
                 running = False
                 return running
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if mx >= 130 and mx <= 200 and my >= 255 and my <= 350:
+                    info_bioFuel(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 300 and mx <= 360 and my >= 247 and my <= 350:
+                    info_compost(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 100 and mx <= 200 and my >= 370 and my <= 470:
+                    info_cap(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 280 and mx <= 390 and my >= 370 and my <= 460:
+                    info_shoe(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 120 and mx <= 210 and my >= 475 and my <= 570:
+                    info_pencils(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 280 and mx <= 390 and my >= 510 and my <= 590:
+                    info_book(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 470 and mx <= 570 and my >= 510 and my <= 610:
+                    info_cups(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
 
         pygame.display.update()
 
@@ -488,6 +2421,32 @@ def moreProductsRight1_recyclingFactory(screen, worker):
             if event.type == pygame.QUIT:
                 running = False
                 return running
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if mx >= 123 and mx <= 223 and my >= 250 and my <= 350:
+                    info_glassphalt(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 293 and mx <= 380 and my >= 250 and my <= 350:
+                    info_reflectivePaint(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 467 and mx <= 567 and my >= 250 and my <= 350:
+                    info_glassTiles(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 120 and mx <= 185 and my >= 380 and my <= 470:
+                    info_fridge(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 277 and mx <= 380 and my >= 380 and my <= 465:
+                    info_metalUtensils(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 465 and mx <= 570 and my >= 380 and my <= 480:
+                    info_microwave(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 116 and mx <= 200 and my >= 510 and my <= 610:
+                    info_oven(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 283 and mx <= 380 and my >= 510 and my <= 600:
+                    info_toaster(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+
 
         pygame.display.update()
 
@@ -553,11 +2512,42 @@ def moreProductsDown_recyclingFactory(screen, worker):
             if event.type == pygame.QUIT:
                 running = False
                 return running
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if mx >= 120 and mx <= 190 and my >= 247 and my <= 350:
+                    info_glassBottle(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 290 and mx <= 405 and my >= 250 and my <= 350:
+                    info_fiberGlass(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 470 and mx <= 570 and my >= 250 and my <= 350:
+                    info_glassBricks(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 120 and mx <= 220 and my >= 380 and my <= 480:
+                    info_metalBench(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 295 and mx <= 370 and my >= 380 and my <= 480:
+                    info_metalChair(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 480 and mx <= 550 and my >= 380 and my <= 480:
+                    info_metalCoffeemaker(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 280 and mx <= 390 and my >= 510 and my <= 577:
+                    info_car(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 100 and mx <= 200 and my >= 525 and my <= 580:
+                    info_plane(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+                if mx >= 465 and mx <= 565 and my >= 510 and my <= 605:
+                    info_metalLamp(screen, worker)
+                    screen.blit(recycling_factory, (0, 0))
+
 
         pygame.display.update()
 
 
 def visit_recycling_factory(screen):
+    #MAIN WINDOW FOR THE PRODUCTS
+
     font3 = pygame.font.SysFont('arialblack', 12)
 
     running = True
@@ -590,13 +2580,13 @@ def visit_recycling_factory(screen):
             blit_text(screen, "       COMPOST\n50 ORGANIC WASTE", (270, 344), font3, (0, 0, 0))
 
             screen.blit(plastic_utensils, (100, 370))
-            blit_text(screen, "    BIO UTENSILS\n50 PLASTIC WASTE", (100, 475), font3, (0, 0, 0))
+            blit_text(screen, "REUSABLE UTENSILS\n 50 PLASTIC WASTE", (95, 475), font3, (0, 0, 0))
 
-            screen.blit(bio_bag, (280, 370))
-            blit_text(screen, "       BIO BAG\n20 PLASTIC WASTE", (275, 475), font3, (0, 0, 0))
+            screen.blit(schoolbag, (290, 370))
+            blit_text(screen, "      SCHOOLBAG\n 70 PLASTIC WASTE", (275, 475), font3, (0, 0, 0))
 
             screen.blit(bottle, (485, 380))
-            blit_text(screen, "BIO PLASTIC BOTTLE\n 10 PLASTIC WASTE", (447, 475), font3, (0, 0, 0))
+            blit_text(screen, "REUSABLE BOTTLE\n10 PLASTIC WASTE", (450, 475), font3, (0, 0, 0))
 
             screen.blit(recycled_paper, (125, 520))
             blit_text(screen, "       PAPER STOCK\n     50 PAPER WASTE", (85, 607), font3, (0, 0, 0))
@@ -621,7 +2611,23 @@ def visit_recycling_factory(screen):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if mx >= 130 and mx <= 200 and my >= 255 and my <= 350:
+                    info_bioFuel(screen, worker)
+                if mx >= 300 and mx <= 360 and my >= 247 and my <= 350:
+                    info_compost(screen, worker)
+                if mx >= 100 and mx <= 230 and my >= 370 and my <= 470:
+                    info_bioUtensils(screen, worker)
+                if mx >= 290 and mx <= 385 and my >= 370 and my <= 470:
+                    info_plasticBackpack(screen, worker)
+                if mx >= 485 and mx <= 535 and my >= 380 and my <= 480:
+                    info_plasticBottle(screen, worker)
+                if mx >= 125 and mx <= 210 and my >= 520 and my <= 610:
+                    info_paperStock(screen, worker)
+                if mx >= 280 and mx <= 390 and my >= 510 and my <= 600:
+                    info_notebook(screen, worker)
+                if mx >= 445 and mx <= 575 and my >= 510 and my <= 600:
+                    info_napkins(screen, worker)
 
         pygame.display.update()
 
