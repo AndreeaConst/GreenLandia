@@ -7,9 +7,9 @@ from pygame import mixer
 # Initialize the pygame
 pygame.init()
 # soundtrack
-menu_music = mixer.Sound('music/menu.wav')
+menu_music = mixer.Sound('design/music/menu.wav')
 # Backgrounds
-backgroundMenu = pygame.image.load('images/menu_background.png')
+backgroundMenu = pygame.image.load('design/backgrounds/menu_background.png')
 
 menuButton = BUTTON.button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
 
@@ -33,7 +33,7 @@ def main_menu():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if menuButton.isOver(pos):
                     menu_music.stop()
-                    townView.townView(screen)
+                    townView.townView()
             if event.type == pygame.MOUSEMOTION:
                 if menuButton.isOver(pos):
                     menuButton.color = (0, 160, 0)
