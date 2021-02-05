@@ -1,7 +1,6 @@
-import BUTTON
-import drawButton
+import Button
 import pygame
-import townView
+import TownView
 from pygame import mixer
 
 # Initialize the pygame
@@ -9,9 +8,9 @@ pygame.init()
 # soundtrack
 menu_music = mixer.Sound('design/music/menu.wav')
 # Backgrounds
-backgroundMenu = pygame.image.load('design/backgrounds/menu_background.png')
+background_menu = pygame.image.load('design/backgrounds/menu_background.png')
 
-menuButton = BUTTON.button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
+menu_button = Button.button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
 
 
 def main_menu():
@@ -20,9 +19,9 @@ def main_menu():
         menu_music.play(-1)
         screen = pygame.display.set_mode((900, 700))
         # background image
-        screen.blit(backgroundMenu, (0, 0))
+        screen.blit(background_menu, (0, 0))
 
-        drawButton.drawButton(screen, menuButton, 40, None)
+        menu_button.draw(screen, 40, None)
         for event in pygame.event.get():
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
@@ -31,14 +30,14 @@ def main_menu():
 
             # menu button
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if menuButton.isOver(pos):
+                if menu_button.is_over(pos):
                     menu_music.stop()
-                    townView.townView()
+                    TownView.town_view()
             if event.type == pygame.MOUSEMOTION:
-                if menuButton.isOver(pos):
-                    menuButton.color = (0, 160, 0)
+                if menu_button.is_over(pos):
+                    menu_button.color = (0, 160, 0)
                 else:
-                    menuButton.color = (255, 255, 255)
+                    menu_button.color = (255, 255, 255)
 
         pygame.display.update()
 

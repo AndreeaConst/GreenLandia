@@ -1,16 +1,18 @@
-import BUTTON
-import blitText
-import drawButton
+import Button
+import BlitText
 import os
 import pygame
 from pygame import mixer
 
-from town_areas import visitRecyclingArea, visitRecyclingFactory
+from town_areas import VisitRecyclingArea, VisitRecyclingFactory
+
+# Initialize the pygame
+pygame.init()
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'  # for centering the window game
 
 # Backgrounds
-town_view = pygame.image.load('design/backgrounds/town.png')
+town_view_image = pygame.image.load('design/backgrounds/town.png')
 townhall = pygame.image.load('design/backgrounds/townhall.png')
 
 # Characters
@@ -25,30 +27,30 @@ icon = pygame.image.load('design/backgrounds/icon.png')
 pygame.display.set_icon(icon)
 
 # Others
-menuButton = BUTTON.button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
-scorePlastic, scoreOrganic, scoreMetal, scorePaper, scoreGlass = 0, 0, 0, 0, 0
+menu_button = Button.button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
+score_plastic, score_organic, score_metal, score_paper, score_glass = 0, 0, 0, 0, 0
 
 
 # FUNCTIONS-----------------------------------------------------------------------------
 
-def townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                            business_center, touristic_area, eco_events, x):
+def town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                             business_center, touristic_area, eco_events, x):
     screen.blit(townhall, (910, 1))
-    screen.blit(town_view, (0, 0))
+    screen.blit(town_view_image, (0, 0))
 
     # buttons
-    drawButton.drawButton(screen, recycling_area, 13, (0, 0, 0))
-    drawButton.drawButton(screen, supermarket, 13, (0, 0, 0))
-    drawButton.drawButton(screen, water_plant, 13, (0, 0, 0))
-    drawButton.drawButton(screen, recycling_plant, 13, (0, 0, 0))
-    drawButton.drawButton(screen, business_center, 13, (0, 0, 0))
-    drawButton.drawButton(screen, touristic_area, 13, (0, 0, 0))
-    drawButton.drawButton(screen, eco_events, 13, (0, 0, 0))
+    recycling_area.draw(screen, 13, (0, 0, 0))
+    supermarket.draw(screen, 13, (0, 0, 0))
+    water_plant.draw(screen, 13, (0, 0, 0))
+    recycling_plant.draw(screen, 13, (0, 0, 0))
+    business_center.draw(screen, 13, (0, 0, 0))
+    touristic_area.draw(screen, 13, (0, 0, 0))
+    eco_events.draw(screen, 13, (0, 0, 0))
 
     screen.blit(mayor_normal_pose, (x, 39))
 
 
-def townView():
+def town_view():
     # town background music
     town_music.play(-1)
 
@@ -65,39 +67,39 @@ def townView():
     font_text_before_after_mayor = pygame.font.SysFont('javanesetext', 20)
 
     # "image" buttons description box town view
-    mayor_text_button = BUTTON.button((255, 255, 255), 950, 50, 210, 150, ' ')
-    visit_button = BUTTON.button((150, 240, 0), 1030, 600, 120, 50, 'VISIT AREA')
+    mayor_text_button = Button.button((255, 255, 255), 950, 50, 210, 150, ' ')
+    visit_button = Button.button((150, 240, 0), 1030, 600, 120, 50, 'VISIT AREA')
 
     # "image" buttons town view
-    recycling_area = BUTTON.button((255, 255, 0), 500, 650, 90, 30, 'Recycling area')
-    supermarket = BUTTON.button((255, 255, 0), 360, 50, 80, 30, 'Supermarket')
-    water_plant = BUTTON.button((255, 255, 0), 500, 50, 150, 30, 'Water purification center')
-    recycling_plant = BUTTON.button((255, 255, 0), 740, 10, 100, 30, 'Recycling factory')
-    business_center = BUTTON.button((255, 255, 0), 100, 350, 100, 30, 'Business center')
-    touristic_area = BUTTON.button((255, 255, 0), 700, 450, 100, 30, 'Touristic area')
-    eco_events = BUTTON.button((255, 255, 0), 400, 450, 100, 30, 'Eco-events area')
+    recycling_area = Button.button((255, 255, 0), 500, 650, 90, 30, 'Recycling area')
+    supermarket = Button.button((255, 255, 0), 360, 50, 80, 30, 'Supermarket')
+    water_plant = Button.button((255, 255, 0), 500, 50, 150, 30, 'Water purification center')
+    recycling_plant = Button.button((255, 255, 0), 740, 10, 100, 30, 'Recycling factory')
+    business_center = Button.button((255, 255, 0), 100, 350, 100, 30, 'Business center')
+    touristic_area = Button.button((255, 255, 0), 700, 450, 100, 30, 'Touristic area')
+    eco_events = Button.button((255, 255, 0), 400, 450, 100, 30, 'Eco-events area')
 
     running = True
 
     x = 1000
-    clickedButton = 0
+    clicked_button = 0
     while running:
 
         pos = pygame.mouse.get_pos()  # mouse coordinates
         # backgrounds screening
-        townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                business_center, touristic_area, eco_events, x)
+        town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                 business_center, touristic_area, eco_events, x)
         # mayor movement + texts
 
-        if clickedButton == 0:
+        if clicked_button == 0:
             if x > 900:
                 x -= 2
                 text = font_text_before_after_mayor.render("THE MAYOR IS COMING...", True, (255, 255, 255))
                 screen.blit(text, (950, 480))
             else:
                 # text boxes
-                drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))  # the message of the mayor
-                blitText.blit_text(screen, intro_text, (952, 50), font_intro_text)
+                mayor_text_button.draw(screen, 13, (0, 0, 0))  # the message of the mayor
+                BlitText.blit_text(screen, intro_text, (952, 50), font_intro_text)
 
                 # cover the old text
                 text = font_text_before_after_mayor.render("THE MAYOR IS COMING...", True, (0, 0, 0))
@@ -106,18 +108,19 @@ def townView():
                 # make new text appear in description box
                 text = font_text_before_after_mayor.render("THE MAYOR IS SPEAKING NOW...", True, (255, 255, 255))
                 screen.blit(text, (915, 480))
-        elif clickedButton == 1:
+
+        elif clicked_button == 1:
             screen.fill((0, 0, 0))
-            townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                    business_center, touristic_area, eco_events, x)
-            drawButton.drawButton(screen, visit_button, 13, (0, 0, 0))
+            town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                     business_center, touristic_area, eco_events, x)
+            visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = BUTTON.button((255, 255, 255), 930, 50, 230, 100, ' ')
-            drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))
+            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the RECYCLING AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
-            blitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
+            BlitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
 
             # description box text
             font = pygame.font.SysFont('arial', 15)
@@ -127,32 +130,32 @@ def townView():
                                "we have to act responsibly.\n\nStep by step, every day, we encourage our citizens" \
                                " to care and sort their garbage at least. Let me present you the recycling area fully!" \
                                " Click on 'visit area' and let's go !!!"
-            blitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
+            BlitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
 
             if event.type == pygame.MOUSEMOTION:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     visit_button.color = (0, 160, 0)
                 else:
                     visit_button.color = (150, 240, 0)
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     town_music.stop()
-                    visitRecyclingArea.visit_recycling_area()
+                    VisitRecyclingArea.visit_recycling_area()
                     town_music.play()
 
-        elif clickedButton == 2:
+        elif clicked_button == 2:
             screen.fill((0, 0, 0))
-            townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                    business_center, touristic_area, eco_events, x)
-            drawButton.drawButton(screen, visit_button, 13, (0, 0, 0))
+            town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                     business_center, touristic_area, eco_events, x)
+            visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = BUTTON.button((255, 255, 255), 930, 50, 230, 100, ' ')
-            drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))
+            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the SUPERMARKET!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
-            blitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
+            BlitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
 
             # description box text
             font = pygame.font.SysFont('arial', 15)
@@ -162,31 +165,31 @@ def townView():
                                "And even though humans could not get their food easily, they would at least" \
                                " eat healthy. We want to bring this back." \
                                "\n\nClick on 'visit area' and let's see how our business is going here!"
-            blitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
+            BlitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
 
             if event.type == pygame.MOUSEMOTION:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     visit_button.color = (0, 160, 0)
                 else:
                     visit_button.color = (150, 240, 0)
 
             # if event.type == pygame.MOUSEBUTTONDOWN:
-            #     if visit_button.isOver(pos):
+            #     if visit_button.is_over(pos):
             #         town_music.stop()
             #         visit_supermarket(screen)
 
-        elif clickedButton == 3:
+        elif clicked_button == 3:
             screen.fill((0, 0, 0))
-            townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                    business_center, touristic_area, eco_events, x)
-            drawButton.drawButton(screen, visit_button, 13, (0, 0, 0))
+            town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                     business_center, touristic_area, eco_events, x)
+            visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = BUTTON.button((255, 255, 255), 930, 50, 230, 100, ' ')
-            drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))
+            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the\nWATER PURIFICATION CENTER!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
-            blitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
+            BlitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
 
             # description box text
             font = pygame.font.SysFont('arial', 15)
@@ -199,31 +202,31 @@ def townView():
                                "and industrial applications.\nI know, dear, it sounds complicated but with this we make " \
                                "your life better and we think that you should know. " \
                                "\nIf you want to experiment with the process, let's visit the area!"
-            blitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
+            BlitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
 
             if event.type == pygame.MOUSEMOTION:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     visit_button.color = (0, 160, 0)
                 else:
                     visit_button.color = (150, 240, 0)
 
             # if event.type == pygame.MOUSEBUTTONDOWN:
-            #     if visit_button.isOver(pos):
+            #     if visit_button.is_over(pos):
             #         town_music.stop()
             #         visit_water_plant(screen)
 
-        elif clickedButton == 4:
+        elif clicked_button == 4:
             screen.fill((0, 0, 0))
-            townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                    business_center, touristic_area, eco_events, x)
-            drawButton.drawButton(screen, visit_button, 13, (0, 0, 0))
+            town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                     business_center, touristic_area, eco_events, x)
+            visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = BUTTON.button((255, 255, 255), 930, 50, 230, 100, ' ')
-            drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))
+            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the RECYCLING FACTORY!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
-            blitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
+            BlitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
 
             # description box text
             font = pygame.font.SysFont('arial', 15)
@@ -231,32 +234,32 @@ def townView():
                                "\n\nAt this facility, items are sorted, compressed, baled, stored, and then shipped out to be " \
                                "made into new products.\n\n Easy said, but believe me: it is a hard thing" \
                                " to do. If you want to see how the business goes here, let's visit the factory! "
-            blitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
+            BlitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
 
             if event.type == pygame.MOUSEMOTION:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     visit_button.color = (0, 160, 0)
                 else:
                     visit_button.color = (150, 240, 0)
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     town_music.stop()
-                    visitRecyclingFactory.visit_recycling_factory(screen)
+                    VisitRecyclingFactory.visit_recycling_factory(screen)
                     town_music.play()
 
-        elif clickedButton == 5:
+        elif clicked_button == 5:
             screen.fill((0, 0, 0))
-            townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                    business_center, touristic_area, eco_events, x)
-            drawButton.drawButton(screen, visit_button, 13, (0, 0, 0))
+            town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                     business_center, touristic_area, eco_events, x)
+            visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = BUTTON.button((255, 255, 255), 930, 50, 230, 100, ' ')
-            drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))
+            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the BUSINESS CENTER!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
-            blitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
+            BlitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
 
             # description box text
             font = pygame.font.SysFont('arial', 15)
@@ -265,31 +268,31 @@ def townView():
                                "\n Here we establish the rules for the city and plans for the future, we create" \
                                " associations of people with different purposes and encourage the youth to participate." \
                                "\n\nLet's see how things go in here because I am indeed curious myself!"
-            blitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
+            BlitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
 
             if event.type == pygame.MOUSEMOTION:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     visit_button.color = (0, 160, 0)
                 else:
                     visit_button.color = (150, 240, 0)
 
             # if event.type == pygame.MOUSEBUTTONDOWN:
-            #     if visit_button.isOver(pos):
+            #     if visit_button.is_over(pos):
             #         town_music.stop()
             #         visit_business_area(screen)
 
-        elif clickedButton == 6:
+        elif clicked_button == 6:
             screen.fill((0, 0, 0))
-            townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                    business_center, touristic_area, eco_events, x)
-            drawButton.drawButton(screen, visit_button, 13, (0, 0, 0))
+            town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                     business_center, touristic_area, eco_events, x)
+            visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = BUTTON.button((255, 255, 255), 930, 50, 230, 100, ' ')
-            drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))
+            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the TOURISTIC AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
-            blitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
+            BlitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
 
             # description box text
             font = pygame.font.SysFont('arial', 15)
@@ -298,31 +301,31 @@ def townView():
                                "its role in our lives. We have been born in nature and we evolved in nature. Not in a " \
                                "hospital. Not in our workplace. But among the trees and animals.\n\nLet's play some games " \
                                "in here, dear citizen!"
-            blitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
+            BlitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
 
             if event.type == pygame.MOUSEMOTION:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     visit_button.color = (0, 160, 0)
                 else:
                     visit_button.color = (150, 240, 0)
 
             # if event.type == pygame.MOUSEBUTTONDOWN:
-            #     if visit_button.isOver(pos):
+            #     if visit_button.is_over(pos):
             #         town_music.stop()
             #         visit_touristic_area(screen)
 
         else:
             screen.fill((0, 0, 0))
-            townBackgrounds_Buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
-                                    business_center, touristic_area, eco_events, x)
-            drawButton.drawButton(screen, visit_button, 13, (0, 0, 0))
+            town_backgrounds_buttons(screen, recycling_area, supermarket, water_plant, recycling_plant,
+                                     business_center, touristic_area, eco_events, x)
+            visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = BUTTON.button((255, 255, 255), 930, 50, 230, 100, ' ')
-            drawButton.drawButton(screen, mayor_text_button, 13, (0, 0, 0))
+            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the EVENTS AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
-            blitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
+            BlitText.blit_text(screen, mayor_text, (933, 50), font_intro_text)
 
             # description box text
             font = pygame.font.SysFont('arial', 15)
@@ -335,16 +338,16 @@ def townView():
                                "business center, come here and make it happen! We are eager to see what is on your " \
                                "entrepreneur mind.\n" \
                                "Shall we see what is happening here now? "
-            blitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
+            BlitText.blit_text(screen, description_text, (915, 370), font, (255, 255, 255))
 
             if event.type == pygame.MOUSEMOTION:
-                if visit_button.isOver(pos):
+                if visit_button.is_over(pos):
                     visit_button.color = (0, 160, 0)
                 else:
                     visit_button.color = (150, 240, 0)
 
             # if event.type == pygame.MOUSEBUTTONDOWN:
-            #     if visit_button.isOver(pos):
+            #     if visit_button.is_over(pos):
             #         town_music.stop()
             #         visit_event_area(screen)
 
@@ -355,46 +358,46 @@ def townView():
                 if event.key == pygame.K_ESCAPE:
                     running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if recycling_area.isOver(pos):
-                    clickedButton = 1
-                if supermarket.isOver(pos):
-                    clickedButton = 2
-                if water_plant.isOver(pos):
-                    clickedButton = 3
-                if recycling_plant.isOver(pos):
-                    clickedButton = 4
-                if business_center.isOver(pos):
-                    clickedButton = 5
-                if touristic_area.isOver(pos):
-                    clickedButton = 6
-                if eco_events.isOver(pos):
-                    clickedButton = 7
+                if recycling_area.is_over(pos):
+                    clicked_button = 1
+                if supermarket.is_over(pos):
+                    clicked_button = 2
+                if water_plant.is_over(pos):
+                    clicked_button = 3
+                if recycling_plant.is_over(pos):
+                    clicked_button = 4
+                if business_center.is_over(pos):
+                    clicked_button = 5
+                if touristic_area.is_over(pos):
+                    clicked_button = 6
+                if eco_events.is_over(pos):
+                    clicked_button = 7
             if event.type == pygame.MOUSEMOTION:
-                if recycling_area.isOver(pos):
+                if recycling_area.is_over(pos):
                     recycling_area.color = (0, 160, 0)
                 else:
                     recycling_area.color = (255, 255, 0)
-                if supermarket.isOver(pos):
+                if supermarket.is_over(pos):
                     supermarket.color = (0, 160, 0)
                 else:
                     supermarket.color = (255, 255, 0)
-                if water_plant.isOver(pos):
+                if water_plant.is_over(pos):
                     water_plant.color = (0, 160, 0)
                 else:
                     water_plant.color = (255, 255, 0)
-                if business_center.isOver(pos):
+                if business_center.is_over(pos):
                     business_center.color = (0, 160, 0)
                 else:
                     business_center.color = (255, 255, 0)
-                if touristic_area.isOver(pos):
+                if touristic_area.is_over(pos):
                     touristic_area.color = (0, 160, 0)
                 else:
                     touristic_area.color = (255, 255, 0)
-                if eco_events.isOver(pos):
+                if eco_events.is_over(pos):
                     eco_events.color = (0, 160, 0)
                 else:
                     eco_events.color = (255, 255, 0)
-                if recycling_plant.isOver(pos):
+                if recycling_plant.is_over(pos):
                     recycling_plant.color = (0, 160, 0)
                 else:
                     recycling_plant.color = (255, 255, 0)
