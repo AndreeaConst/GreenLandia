@@ -23,10 +23,10 @@ description_glass_tiles3 = pygame.image.load('design/recycled items/glass/descri
 
 
 def info_glass_bottle(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((0, 150, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -85,10 +85,10 @@ def info_glass_bottle(screen, worker):
 
 
 def info_fiber_glass(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((0, 150, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -147,10 +147,10 @@ def info_fiber_glass(screen, worker):
 
 
 def info_glass_bricks(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((0, 150, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -207,10 +207,10 @@ def info_glass_bricks(screen, worker):
 
 
 def info_glassphalt(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((0, 150, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 GLASS WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 GLASS WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -271,10 +271,10 @@ def info_glassphalt(screen, worker):
 
 
 def info_reflective_paint(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((0, 150, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 GLASS WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -335,10 +335,10 @@ def info_reflective_paint(screen, worker):
 
 
 def info_glass_tiles(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((0, 150, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 GLASS WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((0, 150, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 GLASS WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)

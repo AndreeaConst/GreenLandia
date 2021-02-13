@@ -27,7 +27,6 @@ icon = pygame.image.load('design/backgrounds/icon.png')
 pygame.display.set_icon(icon)
 
 # Others
-menu_button = Button.button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
 score_plastic, score_organic, score_metal, score_paper, score_glass = 0, 0, 0, 0, 0
 
 
@@ -67,17 +66,17 @@ def town_view():
     font_text_before_after_mayor = pygame.font.SysFont('javanesetext', 20)
 
     # "image" buttons description box town view
-    mayor_text_button = Button.button((255, 255, 255), 950, 50, 210, 150, ' ')
-    visit_button = Button.button((150, 240, 0), 1030, 600, 120, 50, 'VISIT AREA')
+    mayor_text_button = Button.Button((255, 255, 255), 950, 50, 210, 150, ' ')
+    visit_button = Button.Button((150, 240, 0), 1030, 600, 120, 50, 'VISIT AREA')
 
     # "image" buttons town view
-    recycling_area = Button.button((255, 255, 0), 500, 650, 90, 30, 'Recycling area')
-    supermarket = Button.button((255, 255, 0), 360, 50, 80, 30, 'Supermarket')
-    water_plant = Button.button((255, 255, 0), 500, 50, 150, 30, 'Water purification center')
-    recycling_plant = Button.button((255, 255, 0), 740, 10, 100, 30, 'Recycling factory')
-    business_center = Button.button((255, 255, 0), 100, 350, 100, 30, 'Business center')
-    touristic_area = Button.button((255, 255, 0), 700, 450, 100, 30, 'Touristic area')
-    eco_events = Button.button((255, 255, 0), 400, 450, 100, 30, 'Eco-events area')
+    recycling_area = Button.Button((255, 255, 0), 500, 650, 90, 30, 'Recycling area')
+    supermarket = Button.Button((255, 255, 0), 360, 50, 80, 30, 'Supermarket')
+    water_plant = Button.Button((255, 255, 0), 500, 50, 150, 30, 'Water purification center')
+    recycling_plant = Button.Button((255, 255, 0), 740, 10, 100, 30, 'Recycling factory')
+    business_center = Button.Button((255, 255, 0), 100, 350, 100, 30, 'Business center')
+    touristic_area = Button.Button((255, 255, 0), 700, 450, 100, 30, 'Touristic area')
+    eco_events = Button.Button((255, 255, 0), 400, 450, 100, 30, 'Eco-events area')
 
     running = True
 
@@ -116,7 +115,7 @@ def town_view():
             visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button = Button.Button((255, 255, 255), 930, 50, 230, 100, ' ')
             mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the RECYCLING AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
@@ -151,7 +150,7 @@ def town_view():
             visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button = Button.Button((255, 255, 255), 930, 50, 230, 100, ' ')
             mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the SUPERMARKET!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
@@ -185,7 +184,7 @@ def town_view():
             visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button = Button.Button((255, 255, 255), 930, 50, 230, 100, ' ')
             mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the\nWATER PURIFICATION CENTER!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
@@ -222,7 +221,7 @@ def town_view():
             visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button = Button.Button((255, 255, 255), 930, 50, 230, 100, ' ')
             mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the RECYCLING FACTORY!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
@@ -255,7 +254,7 @@ def town_view():
             visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button = Button.Button((255, 255, 255), 930, 50, 230, 100, ' ')
             mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the BUSINESS CENTER!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
@@ -288,7 +287,7 @@ def town_view():
             visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button = Button.Button((255, 255, 255), 930, 50, 230, 100, ' ')
             mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the TOURISTIC AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
@@ -321,7 +320,7 @@ def town_view():
             visit_button.draw(screen, 13, (0, 0, 0))
 
             # mayor message
-            mayor_text_button = Button.button((255, 255, 255), 930, 50, 230, 100, ' ')
+            mayor_text_button = Button.Button((255, 255, 255), 930, 50, 230, 100, ' ')
             mayor_text_button.draw(screen, 13, (0, 0, 0))
             mayor_text = "Welcome to the EVENTS AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"

@@ -21,10 +21,10 @@ description_cap = pygame.image.load('design/recycled items/plastic/description c
 description_shoe = pygame.image.load('design/recycled items/plastic/description shoe.png')
 
 def info_cap(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((200, 10, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PLASTIC WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PLASTIC WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -79,10 +79,10 @@ def info_cap(screen, worker):
         pygame.display.update()
 
 def info_bioutensils(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((200, 10, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PLASTIC WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PLASTIC WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 35)
@@ -138,10 +138,10 @@ def info_bioutensils(screen, worker):
         pygame.display.update()
 
 def info_plastic_backpack(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((200, 10, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 70 PLASTIC WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 70 PLASTIC WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -197,10 +197,10 @@ def info_plastic_backpack(screen, worker):
         pygame.display.update()
 
 def info_plastic_bottle(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((200, 10, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 10 PLASTIC WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 10 PLASTIC WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -261,10 +261,10 @@ def info_plastic_bottle(screen, worker):
         pygame.display.update()
 
 def info_shoe(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((200, 10, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PLASTIC WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((200, 10, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PLASTIC WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)

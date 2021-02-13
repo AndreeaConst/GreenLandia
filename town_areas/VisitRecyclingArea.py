@@ -56,8 +56,8 @@ def visit_recycling_area():
     font = pygame.font.SysFont('arial', 15)
 
     # "image" buttons description box town view
-    text_button = Button.button((255, 255, 255), 800, 50, 300, 300, ' ')
-    play_button = Button.button((150, 240, 0), 900, 300, 100, 35, 'PLAY')
+    text_button = Button.Button((255, 255, 255), 800, 50, 300, 300, ' ')
+    play_button = Button.Button((150, 240, 0), 900, 300, 100, 35, 'PLAY')
 
     score, mistakes, oldmx, oldmy, x = 0, 0, 0, 0, 1000
     play, running = False, True
@@ -214,8 +214,8 @@ def visit_recycling_area():
                         text = 'Congratulations! You recycled ' + str(score) + ' objects!\n\nClose the window' \
                                                                                ' if you want to leave\nthe area or play again!'
                         font = pygame.font.SysFont('arial', 20)
-                        text_button = Button.button((255, 255, 255), 800, 50, 312, 260, ' ')
-                        play_button = Button.button((150, 240, 0), 900, 200, 100, 35, 'PLAY')
+                        text_button = Button.Button((255, 255, 255), 800, 50, 312, 260, ' ')
+                        play_button = Button.Button((150, 240, 0), 900, 200, 100, 35, 'PLAY')
 
                         score = 0
                         correct = False

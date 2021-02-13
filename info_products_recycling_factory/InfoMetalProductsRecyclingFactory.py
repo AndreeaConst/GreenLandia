@@ -24,10 +24,10 @@ description_oven = pygame.image.load('design/recycled items/metal/description ov
 description_toaster = pygame.image.load('design/recycled items/metal/description toaster.png')
 
 def info_metal_bench(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 60 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 60 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -85,10 +85,10 @@ def info_metal_bench(screen, worker):
         pygame.display.update()
 
 def info_metal_chair(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 40 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 40 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -146,10 +146,10 @@ def info_metal_chair(screen, worker):
         pygame.display.update()
 
 def info_metal_coffeemaker(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -207,10 +207,10 @@ def info_metal_coffeemaker(screen, worker):
         pygame.display.update()
 
 def info_car(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 200 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 200 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -268,10 +268,10 @@ def info_car(screen, worker):
         pygame.display.update()
 
 def info_plane(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 300 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 300 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -329,10 +329,10 @@ def info_plane(screen, worker):
         pygame.display.update()
 
 def info_metal_lamp(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -391,10 +391,10 @@ def info_metal_lamp(screen, worker):
 
 
 def info_fridge(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 90 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 90 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -452,10 +452,10 @@ def info_fridge(screen, worker):
         pygame.display.update()
 
 def info_metal_utensils(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -513,10 +513,10 @@ def info_metal_utensils(screen, worker):
         pygame.display.update()
 
 def info_microwave(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 70 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 70 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -574,10 +574,10 @@ def info_microwave(screen, worker):
         pygame.display.update()
 
 def info_oven(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 90 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 90 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -635,10 +635,10 @@ def info_oven(screen, worker):
         pygame.display.update()
 
 def info_toaster(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((50, 0, 200), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 40 METAL WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((50, 0, 200), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 40 METAL WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)

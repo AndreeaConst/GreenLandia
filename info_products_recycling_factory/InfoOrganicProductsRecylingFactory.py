@@ -17,10 +17,10 @@ description_fertilizer1 = pygame.image.load('design/recycled items/organic/descr
 description_fertilizer2 = pygame.image.load('design/recycled items/organic/description fertilizer 2.png')
 
 def info_biofuel(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 180, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 300 ORGANIC WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 180, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 300 ORGANIC WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)
@@ -78,10 +78,10 @@ def info_biofuel(screen, worker):
         pygame.display.update()
 
 def info_compost(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 180, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 ORGANIC WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 180, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 ORGANIC WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 40)

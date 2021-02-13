@@ -19,10 +19,10 @@ description_book = pygame.image.load('design/recycled items/paper/description bo
 description_cups = pygame.image.load('design/recycled items/paper/description cups.png')
 
 def info_paper_stock(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 255, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PAPER WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 50 PAPER WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -85,10 +85,10 @@ def info_paper_stock(screen, worker):
 
 
 def info_notebook(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 255, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PAPER WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PAPER WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -151,10 +151,10 @@ def info_notebook(screen, worker):
 
 
 def info_napkins(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 255, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 10 PAPER WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 10 PAPER WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -217,10 +217,10 @@ def info_napkins(screen, worker):
 
 
 def info_pencils(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 255, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PAPER WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 30 PAPER WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -283,10 +283,10 @@ def info_pencils(screen, worker):
 
 
 def info_book(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 255, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 80 PAPER WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 80 PAPER WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)
@@ -349,10 +349,10 @@ def info_book(screen, worker):
 
 
 def info_cups(screen, worker):
-    table1 = Button.button((255, 255, 255), 200, 50, 590, 590, ' ')
-    table2 = Button.button((255, 255, 0), 200, 50, 590, 133, ' ')
-    text_button = Button.button((255, 255, 255), 850, 50, 350, 200, ' ')
-    create_button = Button.button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 PAPER WASTE')
+    table1 = Button.Button((255, 255, 255), 200, 50, 590, 590, ' ')
+    table2 = Button.Button((255, 255, 0), 200, 50, 590, 133, ' ')
+    text_button = Button.Button((255, 255, 255), 850, 50, 350, 200, ' ')
+    create_button = Button.Button((255, 180, 0), 385, 560, 200, 50, 'CREATE FOR 20 PAPER WASTE')
 
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 32)

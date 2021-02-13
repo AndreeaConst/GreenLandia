@@ -76,13 +76,13 @@ def table_of_contents_recycling_factory(screen):
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 30)
 
-    text_button = Button.button((255, 255, 255), 800, 50, 400, 250, ' ')
-    table = Button.button((0, 0, 0), 50, 50, 590, 630, ' ')
-    glass_square = Button.button((0, 180, 0), 50, 50, 120, 130, ' ')
-    metal_square = Button.button((0, 0, 255), 170, 50, 115, 130, ' ')
-    organic_square = Button.button((255, 200, 0), 285, 50, 115, 130, ' ')
-    paper_square = Button.button((255, 255, 0), 400, 50, 120, 130, ' ')
-    plastic_square = Button.button((255, 0, 0), 520, 50, 120, 130, ' ')
+    text_button = Button.Button((255, 255, 255), 800, 50, 400, 250, ' ')
+    table = Button.Button((0, 0, 0), 50, 50, 590, 630, ' ')
+    glass_square = Button.Button((0, 180, 0), 50, 50, 120, 130, ' ')
+    metal_square = Button.Button((0, 0, 255), 170, 50, 115, 130, ' ')
+    organic_square = Button.Button((255, 200, 0), 285, 50, 115, 130, ' ')
+    paper_square = Button.Button((255, 255, 0), 400, 50, 120, 130, ' ')
+    plastic_square = Button.Button((255, 0, 0), 520, 50, 120, 130, ' ')
 
     glass = pygame.image.load('design/trash/trash1.png')
     metal = pygame.image.load('design/trash/trash12.png')
@@ -139,7 +139,7 @@ def more_products_right_recycling_factory(screen):
             if i == 2:
                 const += 1
             for j in range(0, const):
-                white_square = Button.button((255, 255, 255), y, z, 175, 130, ' ')
+                white_square = Button.Button((255, 255, 255), y, z, 175, 130, ' ')
                 white_square.draw(screen, 13, (0, 0, 0))
                 y += 175
             z += 130
@@ -214,7 +214,7 @@ def more_products_right1_recycling_factory(screen):
                 const -= 1
             y = 80
             for j in range(0, const):
-                white_square = Button.button((255, 255, 255), y, z, 175, 130, ' ')
+                white_square = Button.Button((255, 255, 255), y, z, 175, 130, ' ')
                 white_square.draw(screen, 13, (0, 0, 0))
                 y += 175
             z += 130
@@ -291,7 +291,7 @@ def more_products_down_recycling_factory(screen):
         for i in range(0, 3):
             y = 80
             for j in range(0, 3):
-                white_square = Button.button((255, 255, 255), y, z, 175, 130, ' ')
+                white_square = Button.Button((255, 255, 255), y, z, 175, 130, ' ')
                 white_square.draw(screen, 13, (0, 0, 0))
                 y += 175
             z += 130
@@ -395,7 +395,7 @@ def visit_recycling_factory(screen):
                 if i == 1:
                     const += 1
                 for j in range(0, const):
-                    white_square = Button.button((255, 255, 255), y, z, 175, 130, ' ')
+                    white_square = Button.Button((255, 255, 255), y, z, 175, 130, ' ')
                     white_square.draw(screen, 13, (0, 0, 0))
                     y += 175
                 z += 130
