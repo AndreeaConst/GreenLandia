@@ -2,7 +2,7 @@ import pygame
 
 import Button
 import BlitText
-import TownView
+import GameGlobalVariables
 
 # Initialize the pygame
 pygame.init()
@@ -42,7 +42,7 @@ def info_glass_bottle(screen, worker):
                  "glass separately since glass retains its color after\n" \
                  "recycling." \
 
-    text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -66,9 +66,9 @@ def info_glass_bottle(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_glass >= 20:
-                        TownView.score_glass -= 20
-                        text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!\n\n" \
+                    if GameGlobalVariables.score_glass >= 20:
+                        GameGlobalVariables.score_glass -= 20
+                        text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
                                                                                   "You just created a glass bottle! Congrats!\n" \
                                                                                   "      I am indeed proud of you!"
                     else:
@@ -104,7 +104,7 @@ def info_fiber_glass(screen, worker):
                 "Many sports use fiberglass protective gear, such as\n" \
                 "goaltenders' and catchers' masks." \
 
-    text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -128,9 +128,9 @@ def info_fiber_glass(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_glass >= 20:
-                        TownView.score_glass -= 20
-                        text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!\n\n" \
+                    if GameGlobalVariables.score_glass >= 20:
+                        GameGlobalVariables.score_glass -= 20
+                        text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
                                                                                   "You just created fiber glass! Congrats!\n" \
                                                                                   "      I am indeed proud of you!"
                     else:
@@ -164,7 +164,7 @@ def info_glass_bricks(screen, worker):
                 "  Today glass blocks are used in walls, skylights,\n" \
                 "and sidewalk lights." \
 
-    text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -188,9 +188,9 @@ def info_glass_bricks(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_glass >= 20:
-                        TownView.score_glass -= 20
-                        text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!\n\n" \
+                    if GameGlobalVariables.score_glass >= 20:
+                        GameGlobalVariables.score_glass -= 20
+                        text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
                                                                                   "You just created glass bricks! Congrats!\n" \
                                                                                   "      I am indeed proud of you!"
                     else:
@@ -227,7 +227,7 @@ def info_glassphalt(screen, worker):
                 "and even airport runways to make these surfaces\n" \
                 "less slippery and less prone to cracking." \
 
-    text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -252,9 +252,9 @@ def info_glassphalt(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_glass >= 50:
-                        TownView.score_glass -= 50
-                        text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!\n\n" \
+                    if GameGlobalVariables.score_glass >= 50:
+                        GameGlobalVariables.score_glass -= 50
+                        text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
                                                                                   "You just created glassphalt! Congrats!\n" \
                                                                                   "      I am indeed proud of you!"
                     else:
@@ -292,7 +292,7 @@ def info_reflective_paint(screen, worker):
                 "additive acts as a prism and reflects the light back in the\n" \
                 "direction of its source."
 
-    text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -316,9 +316,9 @@ def info_reflective_paint(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_glass >= 20:
-                        TownView.score_glass -= 20
-                        text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!\n\n" \
+                    if GameGlobalVariables.score_glass >= 20:
+                        GameGlobalVariables.score_glass -= 20
+                        text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
                                                                                   "You just created reflective paint! Congrats!\n" \
                                                                                   "      I am indeed proud of you!"
                     else:
@@ -349,7 +349,7 @@ def info_glass_tiles(screen, worker):
                 "  It also comes in a wide variety of colors. Manufacturers combine recycled glass with\n" \
                 "crushed porcelain embedded in concrete slab to create decorative pathways and patios."
 
-    text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -375,9 +375,9 @@ def info_glass_tiles(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_glass >= 50:
-                        TownView.score_glass -= 50
-                        text_worker = "You have now " + str(TownView.score_glass) + " GLASS WASTE!\n\n" \
+                    if GameGlobalVariables.score_glass >= 50:
+                        GameGlobalVariables.score_glass -= 50
+                        text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
                                                                                   "You just created glass tiles! Congrats!\n" \
                                                                                   "      I am indeed proud of you!"
                     else:

@@ -1,9 +1,9 @@
 import Button
 import BlitText
+import GameGlobalVariables
 import pygame
 from pygame import mixer
 
-import TownView
 from info_products_recycling_factory import InfoOrganicProductsRecylingFactory
 from info_products_recycling_factory import InfoPlasticProductsRecylingFactory
 from info_products_recycling_factory import InfoPaperProductsRecylingFactory
@@ -101,23 +101,23 @@ def table_of_contents_recycling_factory(screen):
     plastic_square.draw(screen, 13, (0, 0, 0))
 
     screen.blit(glass, (43, 30))
-    score = font1.render("Glass: " + str(TownView.score_glass), True, (0, 0, 0))
+    score = font1.render("Glass: " + str(GameGlobalVariables.score_glass), True, (0, 0, 0))
     screen.blit(score, (80, 150))
 
     screen.blit(metal, (190, 50))
-    score = font1.render("Metal: " + str(TownView.score_metal), True, (0, 0, 0))
+    score = font1.render("Metal: " + str(GameGlobalVariables.score_metal), True, (0, 0, 0))
     screen.blit(score, (195, 150))
 
     screen.blit(organic, (307, 95))
-    score = font1.render("Organic: " + str(TownView.score_organic), True, (0, 0, 0))
+    score = font1.render("Organic: " + str(GameGlobalVariables.score_organic), True, (0, 0, 0))
     screen.blit(score, (315, 150))
 
     screen.blit(paper, (395, 60))
-    score = font1.render("Paper: " + str(TownView.score_paper), True, (0, 0, 0))
+    score = font1.render("Paper: " + str(GameGlobalVariables.score_paper), True, (0, 0, 0))
     screen.blit(score, (430, 150))
 
     screen.blit(plastic, (510, 70))
-    score = font1.render("Plastic: " + str(TownView.score_plastic), True, (0, 0, 0))
+    score = font1.render("Plastic: " + str(GameGlobalVariables.score_plastic), True, (0, 0, 0))
     screen.blit(score, (555, 150))
 
     BlitText.blit_text(screen, "BUILD ITEMS", (223, 180), font2, (255, 255, 255))

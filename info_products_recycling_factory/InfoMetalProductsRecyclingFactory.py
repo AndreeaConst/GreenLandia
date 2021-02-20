@@ -2,7 +2,7 @@ import pygame
 
 import Button
 import BlitText
-import TownView
+import GameGlobalVariables
 
 # Initialize the pygame
 pygame.init()
@@ -43,7 +43,7 @@ def info_metal_bench(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this metal bench here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -67,9 +67,9 @@ def info_metal_bench(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 60:
-                        TownView.score_metal -= 60
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 60:
+                        GameGlobalVariables.score_metal -= 60
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a metal bench! Congrats!\n" \
                                                                          "      I am indeed proud of you!"
                     else:
@@ -104,7 +104,7 @@ def info_metal_chair(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this metal chair here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -128,9 +128,9 @@ def info_metal_chair(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 40:
-                        TownView.score_metal -= 40
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 40:
+                        GameGlobalVariables.score_metal -= 40
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a metal chair! Congrats!\n" \
                                                                          "      I am indeed proud of you!"
                     else:
@@ -165,7 +165,7 @@ def info_metal_coffeemaker(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this metal coffeemaker here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -189,9 +189,9 @@ def info_metal_coffeemaker(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 50:
-                        TownView.score_metal -= 50
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 50:
+                        GameGlobalVariables.score_metal -= 50
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a metal coffeemaker! Congrats!\n" \
                                                                          "          I am indeed proud of you!"
                     else:
@@ -226,7 +226,7 @@ def info_car(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this car here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -250,9 +250,9 @@ def info_car(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 200:
-                        TownView.score_metal -= 200
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 200:
+                        GameGlobalVariables.score_metal -= 200
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a car! Congrats!\n" \
                                                                          "    I am indeed proud of you!"
                     else:
@@ -287,7 +287,7 @@ def info_plane(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this plane here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -311,9 +311,9 @@ def info_plane(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 300:
-                        TownView.score_metal -= 300
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 300:
+                        GameGlobalVariables.score_metal -= 300
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a plane! Congrats!\n" \
                                                                          "     I am indeed proud of you!"
                     else:
@@ -348,7 +348,7 @@ def info_metal_lamp(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this metal lamp here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -372,9 +372,9 @@ def info_metal_lamp(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 20:
-                        TownView.score_metal -= 20
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 20:
+                        GameGlobalVariables.score_metal -= 20
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a metal lamp! Congrats!\n" \
                                                                          "      I am indeed proud of you!"
                     else:
@@ -410,7 +410,7 @@ def info_fridge(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this fridge here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -434,9 +434,9 @@ def info_fridge(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 90:
-                        TownView.score_metal -= 90
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 90:
+                        GameGlobalVariables.score_metal -= 90
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a fridge! Congrats!\n" \
                                                                          "     I am indeed proud of you!"
                     else:
@@ -471,7 +471,7 @@ def info_metal_utensils(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made these metal utensils here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -495,9 +495,9 @@ def info_metal_utensils(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 20:
-                        TownView.score_metal -= 20
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 20:
+                        GameGlobalVariables.score_metal -= 20
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created metal utensils! Congrats!\n" \
                                                                          "        I am indeed proud of you!"
                     else:
@@ -532,7 +532,7 @@ def info_microwave(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this microwave here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -556,9 +556,9 @@ def info_microwave(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 70:
-                        TownView.score_metal -= 70
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 70:
+                        GameGlobalVariables.score_metal -= 70
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a microwave! Congrats!\n" \
                                                                          "      I am indeed proud of you!"
                     else:
@@ -593,7 +593,7 @@ def info_oven(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this oven here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -617,9 +617,9 @@ def info_oven(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 90:
-                        TownView.score_metal -= 90
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 90:
+                        GameGlobalVariables.score_metal -= 90
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created an oven! Congrats!\n" \
                                                                          "     I am indeed proud of you!"
                     else:
@@ -654,7 +654,7 @@ def info_toaster(screen, worker):
                 "new appliances, or reused in construction.\n" \
                 "  This is how we made this toaster here!" \
 
-    text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -678,9 +678,9 @@ def info_toaster(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_metal >= 40:
-                        TownView.score_metal -= 40
-                        text_worker = "You have now " + str(TownView.score_metal) + " METAL WASTE!\n\n" \
+                    if GameGlobalVariables.score_metal >= 40:
+                        GameGlobalVariables.score_metal -= 40
+                        text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
                                                                          "You just created a toaster! Congrats!\n" \
                                                                          "      I am indeed proud of you!"
                     else:

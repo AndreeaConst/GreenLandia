@@ -27,9 +27,6 @@ pygame.display.set_caption("Green Landia")
 icon = pygame.image.load('design/backgrounds/icon.png')
 pygame.display.set_icon(icon)
 
-# Others
-score_plastic, score_organic, score_metal, score_paper, score_glass = 0, 0, 0, 0, 0
-
 # fonts
 font_intro_text = pygame.font.SysFont('arial', 15)
 font_text_before_after_mayor = pygame.font.SysFont('javanesetext', 20)

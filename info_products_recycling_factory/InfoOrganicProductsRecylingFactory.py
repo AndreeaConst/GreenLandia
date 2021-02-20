@@ -2,7 +2,7 @@ import pygame
 
 import Button
 import BlitText
-import TownView
+import GameGlobalVariables
 
 # Initialize the pygame
 pygame.init()
@@ -35,7 +35,7 @@ def info_biofuel(screen, worker):
            "of human energy needs from home heating to vehicle\n" \
            "fuel to electricity generation."
 
-    text_worker = "You have now " + str(TownView.score_organic) + " ORGANIC WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_organic) + " ORGANIC WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -60,9 +60,9 @@ def info_biofuel(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_organic >= 300:
-                        TownView.score_organic -= 300
-                        text_worker = "You have now " + str(TownView.score_organic) + " ORGANIC WASTE!\n\n"\
+                    if GameGlobalVariables.score_organic >= 300:
+                        GameGlobalVariables.score_organic -= 300
+                        text_worker = "You have now " + str(GameGlobalVariables.score_organic) + " ORGANIC WASTE!\n\n"\
                                      "You just created biofuel! Congrats!\n" \
                                      "    I am indeed proud of you!"
                     else:
@@ -97,7 +97,7 @@ def info_compost(screen, worker):
                 "  Practically, it uses organic matter that you produce in your\n" \
                 "kitchen or around the house."
 
-    text_worker = "You have now " + str(TownView.score_organic) + " ORGANIC WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_organic) + " ORGANIC WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -122,9 +122,9 @@ def info_compost(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_organic >= 50:
-                        TownView.score_organic -= 50
-                        text_worker = "You have now " + str(TownView.score_organic) + " ORGANIC WASTE!\n\n" \
+                    if GameGlobalVariables.score_organic >= 50:
+                        GameGlobalVariables.score_organic -= 50
+                        text_worker = "You have now " + str(GameGlobalVariables.score_organic) + " ORGANIC WASTE!\n\n" \
                                                                            "You just created compost! Congrats!\n" \
                                                                            "    I am indeed proud of you!"
                     else:

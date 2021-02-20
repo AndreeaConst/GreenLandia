@@ -1,7 +1,10 @@
-import Button
 import pygame
-import TownView
 from pygame import mixer
+
+import Button
+import TownView
+import SaveGame
+import LoadGame
 
 
 class MainMenu:
@@ -13,7 +16,8 @@ class MainMenu:
         # Backgrounds
         self.background_menu = pygame.image.load('design/backgrounds/menu_background.png')
         # menu buttons
-        self.menu_button = Button.Button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
+        self.menu_button_start = Button.Button((255, 255, 255), 300, 180, 300, 70, 'START GAME')
+        self.menu_button_save = Button.Button((255, 255, 255), 300, 300, 300, 70, 'SAVE GAME')
 
     def handle_events(self):
         for event in pygame.event.get():
@@ -24,15 +28,26 @@ class MainMenu:
 
             # menu button
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if self.menu_button.is_over(pos):
+                if self.menu_button_start.is_over(pos):
                     self.menu_music.stop()
+                    LoadGame.load_game()
                     TownView.town_view()
 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.menu_button_save.is_over(pos):
+                    SaveGame.save_game()
+
             if event.type == pygame.MOUSEMOTION:
-                if self.menu_button.is_over(pos):
-                    self.menu_button.color = (0, 160, 0)
+                if self.menu_button_start.is_over(pos):
+                    self.menu_button_start.color = (0, 160, 0)
                 else:
-                    self.menu_button.color = (255, 255, 255)
+                    self.menu_button_start.color = (255, 255, 255)
+
+            if event.type == pygame.MOUSEMOTION:
+                if self.menu_button_save.is_over(pos):
+                    self.menu_button_save.color = (0, 160, 0)
+                else:
+                    self.menu_button_save.color = (255, 255, 255)
 
     def run(self):
         while True:
@@ -42,7 +57,8 @@ class MainMenu:
             # display background image
             screen.blit(self.background_menu, (0, 0))
             # display menu buttons
-            self.menu_button.draw(screen, 40, None)
+            self.menu_button_start.draw(screen, 40, True)
+            self.menu_button_save.draw(screen, 40, True)
 
             self.handle_events()
 

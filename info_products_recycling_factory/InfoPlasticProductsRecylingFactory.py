@@ -4,7 +4,7 @@ import pygame
 
 import Button
 import BlitText
-import TownView
+import GameGlobalVariables
 
 # Initialize the pygame
 pygame.init()
@@ -37,7 +37,7 @@ def info_cap(screen, worker):
                 "before being stretched into a yarn-like fiber\n" \
                 "and woven into a functional fabric. Like a cap!" \
 
-    text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -61,9 +61,9 @@ def info_cap(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_plastic >= 30:
-                        TownView.score_plastic -= 30
-                        text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!\n\n" \
+                    if GameGlobalVariables.score_plastic >= 30:
+                        GameGlobalVariables.score_plastic -= 30
+                        text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
                                                                            "You just created a recycled plastic cap! Congrats!\n" \
                                                                            "          I am indeed proud of you!"
                     else:
@@ -95,7 +95,7 @@ def info_bioutensils(screen, worker):
                 "resources that go into the process of collecting and recycling an item.\n\n" \
                 "  So still, it is better to avoid plastic utensils as much as you can!"
 
-    text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -120,9 +120,9 @@ def info_bioutensils(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_plastic >= 50:
-                        TownView.score_plastic -= 50
-                        text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!\n\n" \
+                    if GameGlobalVariables.score_plastic >= 50:
+                        GameGlobalVariables.score_plastic -= 50
+                        text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
                                                                            "You just created recycled utensils! Congrats!\n" \
                                                                            "         I am indeed proud of you!"
                     else:
@@ -155,7 +155,7 @@ def info_plastic_backpack(screen, worker):
                 "this collection are shipped in a zero-waste packaging solution:\n" \
                 "water-resistant reversible tote bags." \
 
-    text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -179,9 +179,9 @@ def info_plastic_backpack(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_plastic >= 70:
-                        TownView.score_plastic -= 70
-                        text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!\n\n" \
+                    if GameGlobalVariables.score_plastic >= 70:
+                        GameGlobalVariables.score_plastic -= 70
+                        text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
                                                                            "You just created a recycled plastic schoolbag! Congrats!\n" \
                                                                            "          I am indeed proud of you!"
                     else:
@@ -219,7 +219,7 @@ def info_plastic_bottle(screen, worker):
                 "them into many different products.\n" \
                 "Just like a plastic bottle!" \
 
-    text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -243,9 +243,9 @@ def info_plastic_bottle(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_plastic >= 10:
-                        TownView.score_plastic -= 10
-                        text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!\n\n" \
+                    if GameGlobalVariables.score_plastic >= 10:
+                        GameGlobalVariables.score_plastic -= 10
+                        text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
                                                                            "You just created a recycled plastic bottle! Congrats!\n" \
                                                                            "          I am indeed proud of you!"
                     else:
@@ -277,7 +277,7 @@ def info_shoe(screen, worker):
                 "before being stretched into a yarn-like fiber\n" \
                 "and woven into a functional fabric. Like shoes!" \
 
-    text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -301,9 +301,9 @@ def info_shoe(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_plastic >= 50:
-                        TownView.score_plastic -= 50
-                        text_worker = "You have now " + str(TownView.score_plastic) + " PLASTIC WASTE!\n\n" \
+                    if GameGlobalVariables.score_plastic >= 50:
+                        GameGlobalVariables.score_plastic -= 50
+                        text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
                                                                            "You just created recycled plastic shoes! Congrats!\n" \
                                                                            "          I am indeed proud of you!"
                     else:

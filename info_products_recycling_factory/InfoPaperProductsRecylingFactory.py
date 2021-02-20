@@ -2,7 +2,7 @@ import pygame
 
 import Button
 import BlitText
-import TownView
+import GameGlobalVariables
 
 # Initialize the pygame
 pygame.init()
@@ -42,7 +42,7 @@ def info_paper_stock(screen, worker):
                 "  After a long process, here we have new paper that\n" \
                 "we can use!" \
 
-    text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -66,9 +66,9 @@ def info_paper_stock(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_paper >= 50:
-                        TownView.score_paper -= 50
-                        text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!\n\n" \
+                    if GameGlobalVariables.score_paper >= 50:
+                        GameGlobalVariables.score_paper -= 50
+                        text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
                                                                                   "You just created a recycled paper stock! Congrats!\n" \
                                                                                   "          I am indeed proud of you!"
                     else:
@@ -108,7 +108,7 @@ def info_notebook(screen, worker):
                 "  After a long process, here we have new notebooks that\n" \
                 "we can use!" \
 
-    text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -132,9 +132,9 @@ def info_notebook(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_paper >= 30:
-                        TownView.score_paper -= 30
-                        text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!\n\n" \
+                    if GameGlobalVariables.score_paper >= 30:
+                        GameGlobalVariables.score_paper -= 30
+                        text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
                                                                                   "You just created rcycled notebooks! Congrats!\n" \
                                                                                   "          I am indeed proud of you!"
                     else:
@@ -174,7 +174,7 @@ def info_napkins(screen, worker):
                 "  After a long process, here we have new napkins that\n" \
                 "we can use!" \
 
-    text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -198,9 +198,9 @@ def info_napkins(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_paper >= 10:
-                        TownView.score_paper -= 10
-                        text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!\n\n" \
+                    if GameGlobalVariables.score_paper >= 10:
+                        GameGlobalVariables.score_paper -= 10
+                        text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
                                                                                   "You just created recycled paper napkins! Congrats!\n" \
                                                                                   "          I am indeed proud of you!"
                     else:
@@ -240,7 +240,7 @@ def info_pencils(screen, worker):
                 "  After a long process, here we have new paper pencils\n" \
                 "that we can use!" \
 
-    text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -264,9 +264,9 @@ def info_pencils(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_paper >= 30:
-                        TownView.score_paper -= 30
-                        text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!\n\n" \
+                    if GameGlobalVariables.score_paper >= 30:
+                        GameGlobalVariables.score_paper -= 30
+                        text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
                                                                                   "You just created recycled paper pencils! Congrats!\n" \
                                                                                   "          I am indeed proud of you!"
                     else:
@@ -306,7 +306,7 @@ def info_book(screen, worker):
                 "  After a long process, here we have a new book that\n" \
                 "we can use!" \
 
-    text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -330,9 +330,9 @@ def info_book(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_paper >= 80:
-                        TownView.score_paper -= 80
-                        text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!\n\n" \
+                    if GameGlobalVariables.score_paper >= 80:
+                        GameGlobalVariables.score_paper -= 80
+                        text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
                                                                                   "You just created a book! Congrats!\n" \
                                                                                   "     I am indeed proud of you!"
                     else:
@@ -372,7 +372,7 @@ def info_cups(screen, worker):
                 "  After a long process, here we have new paper cusp that\n" \
                 "we can use instead of plastic ones!" \
 
-    text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!"
+    text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!"
     run = True
     while run:
         screen.blit(recycling_factory, (0, 0))
@@ -396,9 +396,9 @@ def info_cups(screen, worker):
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
-                    if TownView.score_paper >= 20:
-                        TownView.score_paper -= 20
-                        text_worker = "You have now " + str(TownView.score_paper) + " PAPER WASTE!\n\n" \
+                    if GameGlobalVariables.score_paper >= 20:
+                        GameGlobalVariables.score_paper -= 20
+                        text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
                                                                                   "You just created recycled paper cups! Congrats!\n" \
                                                                                   "          I am indeed proud of you!"
                     else:

@@ -2,9 +2,10 @@ import Button
 import BlitText
 import pygame
 import random
-import TownView
+import GameGlobalVariables
 from pygame import mixer
 
+# GLOBAL VARIABLES--------------------------------------------------------------------------------------
 # Initialize the pygame
 pygame.init()
 # soundtracks
@@ -123,7 +124,7 @@ def visit_recycling_area():
                                     if 35 <= mx <= 130:
                                         if material == 'metal':
                                             score += 1
-                                            TownView.score_metal += 1
+                                            GameGlobalVariables.score_metal += 1
                                             result = 'Correct'
 
                                             # recycle another piece of trash
@@ -137,7 +138,7 @@ def visit_recycling_area():
                                         if 180 <= mx <= 270:
                                             if material == 'organic':
                                                 score += 1
-                                                TownView.score_organic += 1
+                                                GameGlobalVariables.score_organic += 1
                                                 result = 'Correct'
 
                                                 # recycle another piece of trash
@@ -151,7 +152,7 @@ def visit_recycling_area():
                                             if 340 <= mx <= 415:
                                                 if material == 'paper':
                                                     score += 1
-                                                    TownView.score_paper += 1
+                                                    GameGlobalVariables.score_paper += 1
                                                     result = 'Correct'
 
                                                     # recycle another piece of trash
@@ -165,7 +166,7 @@ def visit_recycling_area():
                                                 if 485 <= mx <= 580:
                                                     if material == 'plastic':
                                                         score += 1
-                                                        TownView.score_plastic += 1
+                                                        GameGlobalVariables.score_plastic += 1
                                                         result = 'Correct'
 
                                                         # recycle another piece of trash
@@ -179,7 +180,7 @@ def visit_recycling_area():
                                                     if 640 <= mx <= 720:
                                                         if material == 'glass':
                                                             score += 1
-                                                            TownView.score_glass += 1
+                                                            GameGlobalVariables.score_glass += 1
                                                             result = 'Correct'
 
                                                             # recycle another piece of trash
