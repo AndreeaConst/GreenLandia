@@ -1,18 +1,16 @@
 import Button
 import BlitText
 import GameGlobalVariables
-import MessageBoxSaveGame
-
-from info_products_recycling_factory import InfoOrganicProductsRecylingFactory
-from info_products_recycling_factory import InfoPlasticProductsRecylingFactory
-from info_products_recycling_factory import InfoPaperProductsRecylingFactory
-from info_products_recycling_factory import InfoMetalProductsRecyclingFactory
-from info_products_recycling_factory import InfoGlassProductsRecylingFactory
+from SavingGameFiles import MessageBoxSaveGame
 
 import pygame
 from pygame import mixer
 
 # Initialize the pygame
+from town_areas.recycling_factory.info_products_recycling_factory import InfoOrganicProductsRecylingFactory, \
+    InfoPlasticProductsRecylingFactory, InfoPaperProductsRecylingFactory, InfoGlassProductsRecylingFactory, \
+    InfoMetalProductsRecyclingFactory
+
 pygame.init()
 
 # backgrounds

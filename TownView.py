@@ -1,12 +1,12 @@
 import Button
 import BlitText
-import MessageBoxSaveGame
+from SavingGameFiles import MessageBoxSaveGame
 import os
 import pygame
 from pygame import mixer
 
-from town_areas import VisitRecyclingFactory
-from town_areas.RecyclingArea import VisitRecyclingArea
+from town_areas.recycling_factory import VisitRecyclingFactory
+from town_areas.recycling_area import VisitRecyclingArea
 
 # GLOBAL VARIABLES--------------------------------------------------------------------------------------
 # Initialize the pygame

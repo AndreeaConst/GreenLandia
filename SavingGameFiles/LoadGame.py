@@ -16,4 +16,7 @@ def load_game():
     if 'score_plastic' in shelf_file.keys():
         GameGlobalVariables.score_plastic = shelf_file['score_plastic']
 
+    if 'money' in shelf_file.keys():
+        GameGlobalVariables.money = shelf_file['money']
+
     shelf_file.close()

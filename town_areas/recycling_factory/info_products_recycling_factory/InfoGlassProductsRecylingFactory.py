@@ -5,7 +5,7 @@ import BlitText
 import GameGlobalVariables
 
 # Initialize the pygame
-import MessageBoxSaveGame
+from SavingGameFiles import MessageBoxSaveGame
 
 pygame.init()
 

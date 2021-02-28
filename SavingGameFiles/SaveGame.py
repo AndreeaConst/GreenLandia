@@ -11,4 +11,6 @@ def save_game():
     shelf_file['score_paper'] = GameGlobalVariables.score_paper
     shelf_file['score_plastic'] = GameGlobalVariables.score_plastic
 
+    shelf_file['money'] = GameGlobalVariables.money
+
     shelf_file.close()

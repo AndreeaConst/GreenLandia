@@ -1,7 +1,7 @@
 import tkinter
 from tkinter import messagebox
 
-import SaveGame
+from SavingGameFiles import SaveGame
 
 
 def quit_and_save():

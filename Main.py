@@ -1,11 +1,9 @@
 import pygame
 from pygame import mixer
 
-import MessageBoxSaveGame
+from SavingGameFiles import MessageBoxSaveGame, LoadGame, SaveGame
 import Button
 import TownView
-import SaveGame
-import LoadGame
 import GameTutorial
 
 
@@ -83,7 +81,7 @@ class MainMenu:
                 if self.ok_save == True:
                     font = pygame.font.Font(None, 64)
                     text = font.render('Game saved', True, pygame.Color('green'))
-                    screen.blit(text, (310, 600))
+                    screen.blit(text, (320, 600))
                     pygame.display.update()
                 timer -= 1
             self.ok_save = False
