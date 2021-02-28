@@ -1,14 +1,16 @@
 import Button
 import BlitText
 import GameGlobalVariables
-import pygame
-from pygame import mixer
+import MessageBoxSaveGame
 
 from info_products_recycling_factory import InfoOrganicProductsRecylingFactory
 from info_products_recycling_factory import InfoPlasticProductsRecylingFactory
 from info_products_recycling_factory import InfoPaperProductsRecylingFactory
 from info_products_recycling_factory import InfoMetalProductsRecyclingFactory
 from info_products_recycling_factory import InfoGlassProductsRecylingFactory
+
+import pygame
+from pygame import mixer
 
 # Initialize the pygame
 pygame.init()
@@ -71,12 +73,12 @@ def table_of_contents_recycling_factory(screen):
            " amount of\nrecycled materials of each kind so far and how much\nmaterial we need to recreate something else." \
            "\n   We will create new products and put them\non the market." \
            " You choose which products\nwe can recreate by clicking on them." \
-           "\n\n Go to the market after this process!"
+           "\n\n Go to the market after this process!\n\n You can return to the town by pressing\nthe escape button on your keyboard!"
     font = pygame.font.SysFont('arial', 20)
     font1 = pygame.font.SysFont('arial', 15)
     font2 = pygame.font.SysFont('arialblack', 30)
 
-    text_button = Button.Button((255, 255, 255), 800, 50, 400, 250, ' ')
+    text_button = Button.Button((255, 255, 255), 800, 50, 400, 290, ' ')
     table = Button.Button((0, 0, 0), 50, 50, 590, 630, ' ')
     glass_square = Button.Button((0, 180, 0), 50, 50, 120, 130, ' ')
     metal_square = Button.Button((0, 0, 255), 170, 50, 115, 130, ' ')
@@ -170,9 +172,16 @@ def more_products_right_recycling_factory(screen):
             if 40 <= mx <= 70 and 420 <= my <= 450:
                 running = True
                 return running
+
             if event.type == pygame.QUIT:
-                running = False
-                return running
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                    return running
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if 130 <= mx <= 200 and 255 <= my <= 350:
                     InfoOrganicProductsRecylingFactory.info_biofuel(screen, worker)
@@ -248,9 +257,16 @@ def more_products_right1_recycling_factory(screen):
             if 40 <= mx <= 70 and 420 <= my <= 450:
                 running = True
                 return running
+
             if event.type == pygame.QUIT:
-                running = False
-                return running
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                    return running
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if 123 <= mx <= 223 and 250 <= my <= 350:
                     InfoGlassProductsRecylingFactory.info_glassphalt(screen, worker)
@@ -332,13 +348,19 @@ def more_products_down_recycling_factory(screen):
                 running = True
                 return running
             if 605 <= mx <= 625 and 433 <= my <= 463:
-                running = True
                 running = more_products_right1_recycling_factory(screen)
                 if not running:
                     return running
+
             if event.type == pygame.QUIT:
-                running = False
-                return running
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                    return running
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if 120 <= mx <= 190 and 247 <= my <= 350:
                     InfoGlassProductsRecylingFactory.info_glass_bottle(screen, worker)
@@ -436,8 +458,16 @@ def visit_recycling_factory(screen):
         screen.blit(worker, (x, 0))
 
         for event in pygame.event.get():
+            mx, my = pygame.mouse.get_pos()
+
             if event.type == pygame.QUIT:
-                running = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if 130 <= mx <= 200 and 255 <= my <= 350:
                     InfoOrganicProductsRecylingFactory.info_biofuel(screen, worker)

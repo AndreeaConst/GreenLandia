@@ -5,6 +5,8 @@ import BlitText
 import GameGlobalVariables
 
 # Initialize the pygame
+import MessageBoxSaveGame
+
 pygame.init()
 
 # backgrounds
@@ -63,14 +65,20 @@ def info_paper_stock(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_paper >= 50:
                         GameGlobalVariables.score_paper -= 50
                         text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
-                                                                                  "You just created a recycled paper stock! Congrats!\n" \
-                                                                                  "          I am indeed proud of you!"
+                                                                                  "You just created a recycled paper stock!\n" \
+                                                                                  "             Congrats!"
                     else:
                         text_worker = "You don't have enough paper waste\n" \
                                      "     to create a paper stock!\n" \
@@ -129,14 +137,20 @@ def info_notebook(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_paper >= 30:
                         GameGlobalVariables.score_paper -= 30
                         text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
-                                                                                  "You just created rcycled notebooks! Congrats!\n" \
-                                                                                  "          I am indeed proud of you!"
+                                                                                  "You just created rcycled notebooks!\n" \
+                                                                                  "             Congrats!"
                     else:
                         text_worker = "You don't have enough paper waste\n" \
                                      "     to create notebooks!\n" \
@@ -195,14 +209,20 @@ def info_napkins(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_paper >= 10:
                         GameGlobalVariables.score_paper -= 10
                         text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
-                                                                                  "You just created recycled paper napkins! Congrats!\n" \
-                                                                                  "          I am indeed proud of you!"
+                                                                                  "You just created recycled paper napkins!\n" \
+                                                                                  "               Congrats!"
                     else:
                         text_worker = "You don't have enough paper waste\n" \
                                      "     to create paper napkins!\n" \
@@ -261,14 +281,20 @@ def info_pencils(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_paper >= 30:
                         GameGlobalVariables.score_paper -= 30
                         text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
-                                                                                  "You just created recycled paper pencils! Congrats!\n" \
-                                                                                  "          I am indeed proud of you!"
+                                                                                  "You just created recycled paper pencils!\n" \
+                                                                                  "             Congrats!"
                     else:
                         text_worker = "You don't have enough paper waste\n" \
                                      "     to create paper pencils!\n" \
@@ -327,14 +353,20 @@ def info_book(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_paper >= 80:
                         GameGlobalVariables.score_paper -= 80
                         text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
-                                                                                  "You just created a book! Congrats!\n" \
-                                                                                  "     I am indeed proud of you!"
+                                                                                  "You just created a book!\n" \
+                                                                                  "         Congrats!"
                     else:
                         text_worker = "You don't have enough paper waste\n" \
                                      "       to create a book!\n" \
@@ -393,14 +425,20 @@ def info_cups(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_paper >= 20:
                         GameGlobalVariables.score_paper -= 20
                         text_worker = "You have now " + str(GameGlobalVariables.score_paper) + " PAPER WASTE!\n\n" \
-                                                                                  "You just created recycled paper cups! Congrats!\n" \
-                                                                                  "          I am indeed proud of you!"
+                                                                                  "You just created recycled paper cups!\n" \
+                                                                                  "              Congrats!"
                     else:
                         text_worker = "You don't have enough paper waste\n" \
                                      "     to create paper cups!\n" \

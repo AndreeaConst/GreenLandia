@@ -1,10 +1,12 @@
 import Button
 import BlitText
+import MessageBoxSaveGame
 import os
 import pygame
 from pygame import mixer
 
-from town_areas import VisitRecyclingArea, VisitRecyclingFactory
+from town_areas import VisitRecyclingFactory
+from town_areas.RecyclingArea import VisitRecyclingArea
 
 # GLOBAL VARIABLES--------------------------------------------------------------------------------------
 # Initialize the pygame
@@ -94,8 +96,8 @@ def town_view():
     mayor_text_button = Button.Button((255, 255, 255), 950, 50, 210, 150, ' ')
     # texts
     mayor_text = "Hello! Welcome to our eco city\ndestined to change the future: \nGREEN LANDIA!\nI am the mayor, Margaret Green." \
-                 "\nClick on a button of an area to\ndiscover more or the 'escape' button" \
-                 "\non your keyboard to leave the town!"
+                 "\nClick on a button of an area to\ndiscover more or press on the\n'escape' button" \
+                 " on your keyboard\nto leave the town!"
 
     running = True
 
@@ -128,7 +130,7 @@ def town_view():
                 screen.blit(text, (915, 480))
 
         elif clicked_button == 1:
-            mayor_text = "Welcome to the RECYCLING AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
+            mayor_text = "Welcome to the RECYCLING AREA!\nPress on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
             description_text = "THE RECYCLING AREA is the place where you, as a citizen, can sort" \
                                " your garbage. Paper to paper. Glass to glass. Plastic to plastic. And so on." \
@@ -145,7 +147,7 @@ def town_view():
                     town_music.play()
 
         elif clicked_button == 2:
-            mayor_text = "Welcome to the SUPERMARKET!\nClick on the 'escape' button on your\nkeyboard if you " \
+            mayor_text = "Welcome to the SUPERMARKET!\nPress on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
             description_text = "Our Supermarkets are completely eco. We have a whole healthy industry" \
                                " and provide our citizens with the best quality food. \n\nHow was it in the prehistorical" \
@@ -161,7 +163,7 @@ def town_view():
             #         visit_supermarket(screen)
 
         elif clicked_button == 3:
-            mayor_text = "Welcome to the\nWATER PURIFICATION CENTER!\nClick on the 'escape' button on your\nkeyboard if you " \
+            mayor_text = "Welcome to the\nWATER PURIFICATION CENTER!\nPress on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
             description_text = "Curious what our water purification center does?\n" \
                                "Well, water purification is the process of removing undesirable chemicals, " \
@@ -179,7 +181,7 @@ def town_view():
             #         visit_water_plant(screen)
 
         elif clicked_button == 4:
-            mayor_text = "Welcome to the RECYCLING FACTORY!\nClick on the 'escape' button on your\nkeyboard if you " \
+            mayor_text = "Welcome to the RECYCLING FACTORY!\nPress on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
             description_text = "The RECYCLING FACTORY is the place where the sorted garbage arrives, from the recycling area." \
                                "\n\nAt this facility, items are sorted, compressed, baled, stored, and then shipped out to be " \
@@ -194,7 +196,7 @@ def town_view():
                     town_music.play()
 
         elif clicked_button == 5:
-            mayor_text = "Welcome to the BUSINESS CENTER!\nClick on the 'escape' button on your\nkeyboard if you " \
+            mayor_text = "Welcome to the BUSINESS CENTER!\nPress on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
             description_text = "This is the heart of Green Landia. It is the place that conducts all the business, " \
                                "ranging from tourism, to the recycling actions. " \
@@ -209,7 +211,7 @@ def town_view():
             #         visit_business_area(screen)
 
         elif clicked_button == 6:
-            mayor_text = "Welcome to the TOURISTIC AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
+            mayor_text = "Welcome to the TOURISTIC AREA!\nPress on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
             description_text = "This is one of our touristic town_areas. As you can see,it is a camping site, but we have so much more." \
                                "\n\nActually, we tend to focus more on getting people outside in the nature and appreciate " \
@@ -224,7 +226,7 @@ def town_view():
             #         visit_touristic_area(screen)
 
         else:
-            mayor_text = "Welcome to the EVENTS AREA!\nClick on the 'escape' button on your\nkeyboard if you " \
+            mayor_text = "Welcome to the EVENTS AREA!\nPress on the 'escape' button on your\nkeyboard if you " \
                          "want to leave the town\nor press on another area button!"
             description_text = "Would you guess what happens here?\n" \
                                "With the help of our citizens from the business center, we organize weekly events." \
@@ -244,6 +246,7 @@ def town_view():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                MessageBoxSaveGame.quit_and_save()
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:

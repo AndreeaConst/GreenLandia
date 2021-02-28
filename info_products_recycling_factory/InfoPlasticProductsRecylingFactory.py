@@ -7,6 +7,8 @@ import BlitText
 import GameGlobalVariables
 
 # Initialize the pygame
+import MessageBoxSaveGame
+
 pygame.init()
 
 # descriptions
@@ -58,14 +60,20 @@ def info_cap(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_plastic >= 30:
                         GameGlobalVariables.score_plastic -= 30
                         text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
-                                                                           "You just created a recycled plastic cap! Congrats!\n" \
-                                                                           "          I am indeed proud of you!"
+                                                                           "You just created a recycled plastic cap!\n" \
+                                                                           "                Congrats!"
                     else:
                         text_worker = "You don't have enough plastic waste\n" \
                                      "        to create a cap!\n" \
@@ -117,14 +125,20 @@ def info_bioutensils(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_plastic >= 50:
                         GameGlobalVariables.score_plastic -= 50
                         text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
-                                                                           "You just created recycled utensils! Congrats!\n" \
-                                                                           "         I am indeed proud of you!"
+                                                                           "You just created recycled utensils!\n" \
+                                                                           "            Congrats!"
                     else:
                         text_worker = "You don't have enough plastic waste\n" \
                                      "     to create recycled utensils!\n" \
@@ -176,14 +190,20 @@ def info_plastic_backpack(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_plastic >= 70:
                         GameGlobalVariables.score_plastic -= 70
                         text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
-                                                                           "You just created a recycled plastic schoolbag! Congrats!\n" \
-                                                                           "          I am indeed proud of you!"
+                                                                           "You just created a recycled plastic schoolbag!\n" \
+                                                                           "                Congrats!"
                     else:
                         text_worker = "You don't have enough plastic waste\n" \
                                      "       to create a schoolbag!\n" \
@@ -240,14 +260,20 @@ def info_plastic_bottle(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_plastic >= 10:
                         GameGlobalVariables.score_plastic -= 10
                         text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
-                                                                           "You just created a recycled plastic bottle! Congrats!\n" \
-                                                                           "          I am indeed proud of you!"
+                                                                           "You just created a recycled plastic bottle!\n" \
+                                                                           "                Congrats!"
                     else:
                         text_worker = "You don't have enough plastic waste\n" \
                                      "     to create a plastic bottle!\n" \
@@ -298,14 +324,20 @@ def info_shoe(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_plastic >= 50:
                         GameGlobalVariables.score_plastic -= 50
                         text_worker = "You have now " + str(GameGlobalVariables.score_plastic) + " PLASTIC WASTE!\n\n" \
-                                                                           "You just created recycled plastic shoes! Congrats!\n" \
-                                                                           "          I am indeed proud of you!"
+                                                                           "You just created recycled plastic shoes!\n" \
+                                                                           "                Congrats!"
                     else:
                         text_worker = "You don't have enough plastic waste\n" \
                                      "        to create shoes!\n" \

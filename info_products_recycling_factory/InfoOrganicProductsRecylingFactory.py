@@ -5,6 +5,8 @@ import BlitText
 import GameGlobalVariables
 
 # Initialize the pygame
+import MessageBoxSaveGame
+
 pygame.init()
 
 # backgrounds
@@ -57,14 +59,20 @@ def info_biofuel(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_organic >= 300:
                         GameGlobalVariables.score_organic -= 300
                         text_worker = "You have now " + str(GameGlobalVariables.score_organic) + " ORGANIC WASTE!\n\n"\
-                                     "You just created biofuel! Congrats!\n" \
-                                     "    I am indeed proud of you!"
+                                     "You just created biofuel!\n" \
+                                     "         Congrats!"
                     else:
                         text_worker = "You don't have enough organic waste\n" \
                                      "        to create biofuel!\n" \
@@ -119,14 +127,20 @@ def info_compost(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_organic >= 50:
                         GameGlobalVariables.score_organic -= 50
                         text_worker = "You have now " + str(GameGlobalVariables.score_organic) + " ORGANIC WASTE!\n\n" \
-                                                                           "You just created compost! Congrats!\n" \
-                                                                           "    I am indeed proud of you!"
+                                                                           "You just created compost!\n" \
+                                                                           "          Congrats!"
                     else:
                         text_worker = "You don't have enough organic waste\n" \
                                      "        to create compost!\n" \

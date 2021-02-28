@@ -5,6 +5,8 @@ import BlitText
 import GameGlobalVariables
 
 # Initialize the pygame
+import MessageBoxSaveGame
+
 pygame.init()
 
 # backgrounds
@@ -64,14 +66,20 @@ def info_metal_bench(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 60:
                         GameGlobalVariables.score_metal -= 60
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a metal bench! Congrats!\n" \
-                                                                         "      I am indeed proud of you!"
+                                                                         "You just created a metal bench!\n" \
+                                                                         "            Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "     to create a metal bench!\n" \
@@ -125,14 +133,20 @@ def info_metal_chair(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 40:
                         GameGlobalVariables.score_metal -= 40
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a metal chair! Congrats!\n" \
-                                                                         "      I am indeed proud of you!"
+                                                                         "You just created a metal chair!\n" \
+                                                                         "             Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "     to create a metal chair!\n" \
@@ -186,14 +200,20 @@ def info_metal_coffeemaker(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 50:
                         GameGlobalVariables.score_metal -= 50
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a metal coffeemaker! Congrats!\n" \
-                                                                         "          I am indeed proud of you!"
+                                                                         "You just created a metal coffeemaker!\n" \
+                                                                         "              Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "  to create a metal coffeemaker!\n" \
@@ -247,14 +267,20 @@ def info_car(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 200:
                         GameGlobalVariables.score_metal -= 200
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a car! Congrats!\n" \
-                                                                         "    I am indeed proud of you!"
+                                                                         "You just created a car!\n" \
+                                                                         "       Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "        to create a car!\n" \
@@ -308,14 +334,20 @@ def info_plane(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 300:
                         GameGlobalVariables.score_metal -= 300
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a plane! Congrats!\n" \
-                                                                         "     I am indeed proud of you!"
+                                                                         "You just created a plane!\n" \
+                                                                         "         Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "       to create a plane!\n" \
@@ -369,14 +401,20 @@ def info_metal_lamp(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 20:
                         GameGlobalVariables.score_metal -= 20
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a metal lamp! Congrats!\n" \
-                                                                         "      I am indeed proud of you!"
+                                                                         "You just created a metal lamp!\n" \
+                                                                         "          Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "     to create a metal lamp!\n" \
@@ -431,14 +469,20 @@ def info_fridge(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 90:
                         GameGlobalVariables.score_metal -= 90
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a fridge! Congrats!\n" \
-                                                                         "     I am indeed proud of you!"
+                                                                         "You just created a fridge!\n" \
+                                                                         "         Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "       to create a fridge!\n" \
@@ -492,14 +536,20 @@ def info_metal_utensils(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 20:
                         GameGlobalVariables.score_metal -= 20
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created metal utensils! Congrats!\n" \
-                                                                         "        I am indeed proud of you!"
+                                                                         "You just created metal utensils!\n" \
+                                                                         "             Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "     to create metal utensils!\n" \
@@ -553,14 +603,20 @@ def info_microwave(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 70:
                         GameGlobalVariables.score_metal -= 70
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a microwave! Congrats!\n" \
-                                                                         "      I am indeed proud of you!"
+                                                                         "You just created a microwave!\n" \
+                                                                         "          Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "     to create a microwave!\n" \
@@ -614,14 +670,20 @@ def info_oven(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 90:
                         GameGlobalVariables.score_metal -= 90
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created an oven! Congrats!\n" \
-                                                                         "     I am indeed proud of you!"
+                                                                         "You just created an oven!\n" \
+                                                                         "         Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "     to create an oven!\n" \
@@ -675,14 +737,20 @@ def info_toaster(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_metal >= 40:
                         GameGlobalVariables.score_metal -= 40
                         text_worker = "You have now " + str(GameGlobalVariables.score_metal) + " METAL WASTE!\n\n" \
-                                                                         "You just created a toaster! Congrats!\n" \
-                                                                         "      I am indeed proud of you!"
+                                                                         "You just created a toaster!\n" \
+                                                                         "         Congrats!"
                     else:
                         text_worker = "You don't have enough metal waste\n" \
                                      "       to create a toaster!\n" \

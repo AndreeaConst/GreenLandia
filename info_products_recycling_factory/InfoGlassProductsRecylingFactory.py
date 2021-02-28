@@ -5,6 +5,8 @@ import BlitText
 import GameGlobalVariables
 
 # Initialize the pygame
+import MessageBoxSaveGame
+
 pygame.init()
 
 # backgrounds
@@ -63,14 +65,20 @@ def info_glass_bottle(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_glass >= 20:
                         GameGlobalVariables.score_glass -= 20
                         text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
-                                                                                  "You just created a glass bottle! Congrats!\n" \
-                                                                                  "      I am indeed proud of you!"
+                                                                                  "You just created a glass bottle!\n" \
+                                                                                  "           Congrats!"
                     else:
                         text_worker = "You don't have enough glass waste\n" \
                                      "     to create a glass bottle!\n" \
@@ -125,14 +133,20 @@ def info_fiber_glass(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_glass >= 20:
                         GameGlobalVariables.score_glass -= 20
                         text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
-                                                                                  "You just created fiber glass! Congrats!\n" \
-                                                                                  "      I am indeed proud of you!"
+                                                                                  "You just created fiber glass!\n" \
+                                                                                  "           Congrats!"
                     else:
                         text_worker = "You don't have enough glass waste\n" \
                                      "     to create fiber glass!\n" \
@@ -185,14 +199,20 @@ def info_glass_bricks(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_glass >= 20:
                         GameGlobalVariables.score_glass -= 20
                         text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
-                                                                                  "You just created glass bricks! Congrats!\n" \
-                                                                                  "      I am indeed proud of you!"
+                                                                                               "You just created glass bricks!\n" \
+                                                                                               "           Congrats!"
                     else:
                         text_worker = "You don't have enough glass waste\n" \
                                      "     to create glass bricks!\n" \
@@ -249,14 +269,20 @@ def info_glassphalt(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_glass >= 50:
                         GameGlobalVariables.score_glass -= 50
                         text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
-                                                                                  "You just created glassphalt! Congrats!\n" \
-                                                                                  "      I am indeed proud of you!"
+                                                                                  "You just created glassphalt!\n" \
+                                                                                  "           Congrats!"
                     else:
                         text_worker = "You don't have enough glass waste\n" \
                                      "     to create glassphalt!\n" \
@@ -313,14 +339,20 @@ def info_reflective_paint(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_glass >= 20:
                         GameGlobalVariables.score_glass -= 20
                         text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
-                                                                                  "You just created reflective paint! Congrats!\n" \
-                                                                                  "      I am indeed proud of you!"
+                                                                                  "You just created reflective paint!\n" \
+                                                                                  "           Congrats!"
                     else:
                         text_worker = "You don't have enough glass waste\n" \
                                      "    to create reflective paint!\n" \
@@ -372,14 +404,20 @@ def info_glass_tiles(screen, worker):
             pos = pygame.mouse.get_pos()  # pos stores the x and y coordinates for the mouse
 
             if event.type == pygame.QUIT:
-                run = False
+                MessageBoxSaveGame.quit_and_save()
+                pygame.quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if create_button.is_over(pos):
                     if GameGlobalVariables.score_glass >= 50:
                         GameGlobalVariables.score_glass -= 50
                         text_worker = "You have now " + str(GameGlobalVariables.score_glass) + " GLASS WASTE!\n\n" \
-                                                                                  "You just created glass tiles! Congrats!\n" \
-                                                                                  "      I am indeed proud of you!"
+                                                                                  "You just created glass tiles!\n" \
+                                                                                  "           Congrats!"
                     else:
                         text_worker = "You don't have enough glass waste\n" \
                                      "      to create glass tiles!\n" \
